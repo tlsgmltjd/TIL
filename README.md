@@ -26,3 +26,4 @@
 
 - [DOM](https://github.com/tlsgmltjd/TIL/blob/main/HTML/DOM.md)
 - [HTML](https://github.com/tlsgmltjd/TIL/blob/main/HTML/html.md)
+- [시멘틱 테그](https://github.com/tlsgmltjd/TIL/blob/main/HTML/SemanticTag.md)
