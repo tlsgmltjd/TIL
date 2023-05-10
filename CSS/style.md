@@ -188,3 +188,126 @@ box-shadow: 5px 10px 15px 8px rgba(0, 0, 0, 0.6);
 불투명도
 opacity: 1;
 ```
+
+---
+
+## 선택자+
+
+### 선택자
+
+```
+선택자 {
+  선언;
+  선언;
+  선언;
+}
+```
+
+### 선택자 목록
+
+#### 콤마(,)로 선택자를 연결하면 여러 선택자에 같은 규칙을 적용할 수 있음
+
+```css
+선택자1,
+선택자2 {
+  ...;
+}
+```
+
+### 선택자 붙여 쓰기
+
+#### 여러 조건을 동시에 만족하는 요소를 선택
+
+```html
+<h2 id="mongolia" class="large title">진헌이</h2>
+```
+
+```CSS
+예시 1. 아이디 + 클래스
+#mongolia.title
+예시 2. 클래스 + 클래스
+.large.title
+예시 3. 태그 + 아이디 + 클래스
+h2#mongolia.large.title
+```
+
+---
+
+### 자식 결합자 (Child Combinator)
+
+오른쪽 꺾쇠로 선택자를 이어줌
+
+```HTML
+<div class="article">
+  <img src="tesla-y-2025.png">
+  ...
+</div>
+```
+
+```CSS
+.article > img {
+width: 100%;
+}
+```
+
+### 자손 결합자 (Descendant Combinator)
+
+스페이스(띄어쓰기)로 선택자를 이어 줌
+
+```HTML
+<div class="article">
+    <p> 이번에 리뷰해 볼 진헌이는 로보틱스 진헌이입니다.
+      <img src="tesla-w-2025.png">
+  </p>
+  ...
+</div>
+```
+
+```CSS
+.article img {
+width: 100%;
+}
+```
+
+### 가상 클래스 (Pseudo-class)
+
+```
+:hover(마우스를 올렸을 때),
+:active(클릭한 상태)
+:visited(방문한 적이 있는 링크),
+:focus(포커싱 됐을 때)
+```
+
+```css
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+```
+
+---
+
+```
+모든 요소를 선택하기
+* {
+  box-sizing: border-box;
+}
+
+.gallery의 모든 자식 요소 선택하기
+
+.gallery > * {
+  width: 120px;
+  height: 90px;
+}
+
+n번째 자식 선택자(n-th child Selector)
+ex. 숫자, even, odd, 2n
+
+.gallery :nth-child(3) { ... }
+
+.gallery :first-child { ... }
+.gallery :last-child { ... }
+```
