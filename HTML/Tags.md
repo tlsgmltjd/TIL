@@ -138,3 +138,156 @@ ul > li {
 ---
 
 ### 폼 (form)
+
+- 기본적인 폼의 형태
+
+```html
+<form>
+  <label for="username">아이디</label>
+  <input id="username" name="username" />
+
+  <label for="password">비밀번호</label>
+  <input id="password" name="password" type="password" />
+
+  <button>로그인</button>
+</form>
+```
+
+- type 속성을 사용하면 다양한 인풋을 사용할 수 있다.
+
+```html
+<label for="password">비밀번호</label>
+<input id="password" name="password" type="password" />
+```
+
+- 값이 비어있을 때 보여주는 값 placeholder
+
+```html
+<input name="username" placeholder="이메일 또는 휴대전화" />
+```
+
+- 반드시 입력해야 하는 값 required
+
+```html
+<input name="email" type="email" required />
+```
+
+- 자동 완성 autocomplete
+
+```html
+<input name="search" type="text" autocomplete="on" />
+```
+
+---
+
+#### 체크박스 checkbox
+
+한 항목만 선택하는 경우
+
+```html
+<label>
+  <input name="agreement" type="checkbox" />
+  동의합니다
+</label>
+```
+
+날짜 date
+선택한 날짜로 값을 지정할 수 있다.
+
+```html
+<input name="birthdate" type="date" />
+```
+
+파일 file
+
+```html
+<input name="avatar" type="file" />
+```
+
+파일 형식 지정하기
+accept라는 속성을 써서 허용할 파일 확장자들을 정해 줄 수 있다.
+
+```html
+<input name="avatar" type="file" accept=".png,.jpg" />
+```
+
+파일 개수 지정하기
+
+```html
+<input name="photos" type="file" mutliple />
+<!-- 여러 개 선택 가능 -->
+<input name="avatar" type="file" />
+<!-- 한 개만 선택 가능 -->
+```
+
+이메일 email
+
+```html
+<input name="email" type="email" />
+```
+
+숫자 number
+
+```html
+<input type="number" />
+
+<!-- 100에서 1000사이 -->
+<input type="number" min="100" max="1000" />
+
+<!-- 100에서 1000사이, 버튼을 눌렀을 때 100씩 증가, 감소 -->
+<input type="number" min="100" max="1000" step="100" />
+```
+
+비밀번호 password
+
+```html
+<input type="password" />
+```
+
+라디오 radio
+동그란 선택 버튼입니다. 체크박스와 다르게 여러 항목 중 하나의 항목만 선택할 수 있다.
+
+```html
+<input id="very-bad" name="feeling" value="0" type="radio" />
+<label for="very-bad">아주 나쁨</label>
+<input id="bad" name="feeling" value="1" type="radio" />
+<label for="bad">나쁨</label>
+<input id="soso" name="feeling" value="2" type="radio" />
+<label for="soso">보통</label>
+<input id="good" name="feeling" value="3" type="radio" />
+<label for="good">좋음</label>
+<input id="very-good" name="feeling" value="4" type="radio" />
+<label for="very-good">아주 좋음</label>
+```
+
+범위 range
+
+```html
+<label for="signup-feeling">현재 기분</label>
+<input id="signup-feeling" name="feeling" min="1" min="10" type="range" />
+```
+
+텍스트 text
+
+```html
+<input name="nickname" type="text" />
+```
+
+옵션 선택 `<select>`
+
+```html
+<label for="genre">장르</label>
+<select id="genre" name="genre">
+  <option value="korean">한국 영화</option>
+  <option value="foreign">외국 영화</option>
+  <option value="drama">드라마</option>
+  <option value="documentary">다큐멘터리</option>
+  <option value="vareity">예능</option>
+</select>
+```
+
+긴 글 `<textarea>`
+
+```html
+<textarea name="content"></textarea>
+```
