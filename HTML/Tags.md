@@ -56,3 +56,85 @@ ul > li {
 ```
 
 ---
+
+### 테이블 (table)
+
+- 테이블의 행은 `<tr>` (Table Row)태그로 감싼다.  
+  각 데이터들은 `<td>` (Table Data) 태그로 넣는다.
+
+```html
+<table>
+  <tr>
+    <td></td>
+    <td>Premium</td>
+    <td>Standard</td>
+    <td>Basic</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>₩15,900</td>
+    <td>₩10,900</td>
+    <td>₩8,900</td>
+  </tr>
+  <tr>
+    <td>화질</td>
+    <td>최대</td>
+    <td>FHD</td>
+    <td>HD</td>
+  </tr>
+  <tr>
+    <td>다운로드</td>
+    <td>무제한</td>
+    <td>월 30회</td>
+    <td>불가</td>
+  </tr>
+</table>
+```
+
+##### 머리글
+
+표에서 머리글은 `<thead>` 태그로 감싼다. 행은 `<tr>` 태그로 감싼다.  
+ 각 행 안에 있는 것들은 제목이기 때문에`<td>`가 아니라 `<th>`라는 태그를 사용한다.  
+ 본문에 해당하는 행들은 `<tbody>`라는 태그로 감싼다.
+
+```html
+<thead>
+  <tr>
+    <th></th>
+    <th>Premium</th>
+    <th>Standard</th>
+    <th>Basic</th>
+  </tr>
+  <tr>
+    <th></th>
+    <th>₩15,900</th>
+    <th>₩10,900</th>
+    <th>₩8,900</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    ...
+  </tr>
+  ...
+</tbody>
+```
+
+#### 바닥글
+
+표에서 바닥글은`<tfoot>` 태그로 감싼다.
+
+```html
+<tfoot>
+  <tr>
+    <th></th>
+    <th>₩15,900</th>
+    <th>₩10,900</th>
+    <th>₩8,900</th>
+  </tr>
+</tfoot>
+```
+
+---
+
+### 폼 (form)
