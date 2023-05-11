@@ -35,3 +35,7 @@
 - [inline-block](https://github.com/tlsgmltjd/TIL/blob/main/CSS/inline-block.md)
 - [BoxModel](https://github.com/tlsgmltjd/TIL/blob/main/CSS/boxmodel.md)
 - [CssLayout](https://github.com/tlsgmltjd/TIL/blob/main/CSS/css-layout.md)
+
+### JS
+
+- [기본 문법](https://github.com/tlsgmltjd/TIL/blob/main/JS/javascript.md)
