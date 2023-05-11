@@ -217,6 +217,68 @@ for (let i of phone) {
 }
 ```
 
+#### Mate() 객체
+
+```js
+// Mate() 객체
+
+// .abs 절댓값
+console.log(Math.abs(-10));
+
+// .max , .min 최댓값 , 최솟값
+console.log(Math.max(2, 1, 0));
+console.log(Math.min(2, 1, 0));
+
+// .pow 거듭제곱
+console.log(Math.pow(2, 3));
+
+// .sqrt 제곱근
+console.log(Math.sqrt(49));
+
+// .round 반올린
+console.log(Math.round(2.7));
+
+// .floor / .ceil 버림, 올림
+console.log(Math.floor(2.4));
+console.log(Math.ceil(2.8));
+
+// .random 난수 (0 이상 1 미만)
+console.log(Math.random());
+```
+
+#### 변수의 기본형과 참조형
+
+```js
+// 기본형 Number String Boolean Null undefined / 변수 = 값
+// 참조형 Objecct / 변수 = 주소
+
+let x = { name: "신희성" };
+let y = x; // x 값에는 주소값이 있기 때문에 y변수에 객체 주소를 복사
+
+console.log(x);
+console.log(y);
+
+y.birth = 070301; // x와 y는 주소값이 할당되어있음 수정해도 값이 같음
+
+console.log(x);
+console.log(y);
+```
+
+#### 참조형 주의
+
+```js
+let ob1 = [1, 2, 3, 4, 5];
+let ob2 = ob1.slice();
+// 배열 ob2에 배열 ob1를 그냥 할당시키면 주소값이 복사되어
+// 한쪽 변수를 수정 시 두 변수 모두 가리키는 배열(오브젝트(참조형))이 같음으로
+// 값이 같기 때문에 .slice() 를 사용하여 ob2 값에 ob1 값을 복사.
+
+ob2.push(5, 6, 7, 8);
+
+console.log(ob1);
+console.log(ob2);
+```
+
 ---
 
 ```js
