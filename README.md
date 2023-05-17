@@ -47,3 +47,4 @@
 - [try...catch](https://github.com/tlsgmltjd/TIL/blob/main/JS/try...catch.md)
 - [this](https://github.com/tlsgmltjd/TIL/blob/main/JS/this.md)
 - [Arrow Function =>](https://github.com/tlsgmltjd/TIL/blob/main/JS/ArrowFunction.md)
+- [ArrayFunction](https://github.com/tlsgmltjd/TIL/blob/main/JS/ArrayFunction.md)
