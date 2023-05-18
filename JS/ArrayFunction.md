@@ -16,7 +16,7 @@ arr.forEach((item) => console.log(item));
 
 ```js
 const Array = [1, 2, 3, 4, 5, 6, 7, 8];
-arr.map((num) => num * 2);
+arr.map((num, index) => num * 2);
 // [2, 4, 6, 8, 10, 12, 14, 16]
 ```
 
@@ -50,9 +50,37 @@ console.log(sortedFruits);
 // 출력: ['apple', 'banana', 'grape', 'orange']
 ```
 
-- 배열의 요소를 정렬한다.
+- 배열의 문자열 요소를 정렬한다.
 
-+) _내용추가_ _정렬기능_
+#### 숫자 정렬하기
+
+> 오름차순 정렬
+
+```js
+let numbers = [5, 2, 9, 1, 7];
+numbers.sort(function (a, b) {
+  return a - b;
+});
+console.log(numbers);
+// [1, 2, 5, 7, 9]
+```
+
+- 콜백함수 a와b에 각각 비교할 배열의 요소가 들어간다.
+- 오름차순 정렬을 하기 위해 **a - b** 를 하여 **양수가 나온다면 서로 위치를 바꾸고  
+  음수가 나온다면 그대로 둔다**.
+
+<br />
+
+> 내림차순 정렬
+
+```js
+let numbers = [5, 2, 9, 1, 7];
+numbers.sort(function (a, b) {
+  return b - a;
+});
+console.log(numbers);
+// [9, 7, 5, 2, 1]
+```
 
 ---
 
