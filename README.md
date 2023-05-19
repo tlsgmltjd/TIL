@@ -41,10 +41,11 @@
 
 - [기본 문법](https://github.com/tlsgmltjd/TIL/blob/main/JS/javascript.md)
 - [DOM](https://github.com/tlsgmltjd/TIL/tree/main/JS/DOM)
+- [var let const](https://github.com/tlsgmltjd/TIL/blob/main/JS/var-let-const.md)
 - [ShallowCopy? DeepCopy?](https://github.com/tlsgmltjd/TIL/blob/main/JS/ShallowCopy-DeepCopy.md)
 - [Destructuring](https://github.com/tlsgmltjd/TIL/blob/main/JS/Destructuring.md)
 - [Spread-Rest](https://github.com/tlsgmltjd/TIL/blob/main/JS/Spread-Rest.md)
 - [try...catch](https://github.com/tlsgmltjd/TIL/blob/main/JS/try...catch.md)
 - [this](https://github.com/tlsgmltjd/TIL/blob/main/JS/this.md)
 - [Arrow Function =>](https://github.com/tlsgmltjd/TIL/blob/main/JS/ArrowFunction.md)
-- [ArrayFunction](https://github.com/tlsgmltjd/TIL/blob/main/JS/ArrayFunction.md)
+- [Array Function](https://github.com/tlsgmltjd/TIL/blob/main/JS/ArrayFunction.md)
