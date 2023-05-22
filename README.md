@@ -43,6 +43,7 @@
 - [DOM](https://github.com/tlsgmltjd/TIL/tree/main/JS/DOM)
 - [var let const](https://github.com/tlsgmltjd/TIL/blob/main/JS/var-let-const.md)
 - [Hoisting](https://github.com/tlsgmltjd/TIL/blob/main/JS/Hoisting.md)
+- [Template Tagged literals](https://github.com/tlsgmltjd/TIL/blob/main/JS/Template-Tagged-literals.md)
 - [Array Function](https://github.com/tlsgmltjd/TIL/blob/main/JS/ArrayFunction.md)
 - [ShallowCopy? DeepCopy?](https://github.com/tlsgmltjd/TIL/blob/main/JS/ShallowCopy-DeepCopy.md)
 - [Destructuring](https://github.com/tlsgmltjd/TIL/blob/main/JS/Destructuring.md)
