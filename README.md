@@ -47,6 +47,7 @@
 - [Template Tagged literals](https://github.com/tlsgmltjd/TIL/blob/main/JS/Template-Tagged-literals.md)
 - [PAD](https://github.com/tlsgmltjd/TIL/blob/main/JS/PAD.md)
 - [setTimeout setInterval](https://github.com/tlsgmltjd/TIL/blob/main/JS/setTimeout-setInterval.md)
+- [webStorage](https://github.com/tlsgmltjd/TIL/blob/main/JS/webStorage.md)
 - [Array Function](https://github.com/tlsgmltjd/TIL/blob/main/JS/ArrayFunction.md)
 - [ShallowCopy? DeepCopy?](https://github.com/tlsgmltjd/TIL/blob/main/JS/ShallowCopy-DeepCopy.md)
 - [Destructuring](https://github.com/tlsgmltjd/TIL/blob/main/JS/Destructuring.md)
