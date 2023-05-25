@@ -45,6 +45,8 @@
 - [var let const](https://github.com/tlsgmltjd/TIL/blob/main/JS/var-let-const.md)
 - [Hoisting](https://github.com/tlsgmltjd/TIL/blob/main/JS/Hoisting.md)
 - [Template Tagged literals](https://github.com/tlsgmltjd/TIL/blob/main/JS/Template-Tagged-literals.md)
+- [PAD](https://github.com/tlsgmltjd/TIL/blob/main/JS/PAD.md)
+- [setTimeout setInterval](https://github.com/tlsgmltjd/TIL/blob/main/JS/setTimeout-setInterval.md)
 - [Array Function](https://github.com/tlsgmltjd/TIL/blob/main/JS/ArrayFunction.md)
 - [ShallowCopy? DeepCopy?](https://github.com/tlsgmltjd/TIL/blob/main/JS/ShallowCopy-DeepCopy.md)
 - [Destructuring](https://github.com/tlsgmltjd/TIL/blob/main/JS/Destructuring.md)
