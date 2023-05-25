@@ -281,20 +281,6 @@ console.log(ob2);
 
 ---
 
-#### toggle
-
-```js
-function handleTitleClick() {
-  const clickedClass = "active";
-  h1.classList.toggle(clickedClass);
-}
-```
-
-> handleTitleClick 함수가 실행 되었을 떄  
-> h1의 class에 `active` 가 없다면 추가, 있다면 삭제한다! (말 그대로 토글 기능)
-
----
-
 ```js
 // 형 변환
 
@@ -336,6 +322,11 @@ console.log(null == undefined);
 console.log(null === undefined); // false
 console.log(null == undefined); // true
 ```
+
+<br />
+<br />
+<br />
+<br />
 
 ---
 
@@ -417,3 +408,25 @@ let array = [10, 20, 30];
 ```
 
 > Spread 문법을 사용하여 쉽게 표현 가능
+
+---
+
+<br />
+<br />
+
+#### toggle
+
+```js
+function handleTitleClick() {
+  const clickedClass = "active";
+  h1.classList.toggle(clickedClass);
+}
+```
+
+> handleTitleClick 함수가 실행 되었을 떄  
+> h1의 class에 `active` 가 없다면 추가, 있다면 삭제한다! (말 그대로 토글 기능)
+
+---
+
+<br />
+<br />
