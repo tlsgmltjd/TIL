@@ -178,4 +178,10 @@ element.className, element.classList
 
 ```js
 const title = document.querySelector(".title");
+
+function handleTitleClick() {
+  title.classList.toggle("active");
+}
+
+title.addEventListener("click", handleTitleClick);
 ```
