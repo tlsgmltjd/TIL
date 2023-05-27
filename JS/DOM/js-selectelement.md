@@ -74,3 +74,108 @@ btn.onclick = function () {
   console.log("Hello Codeit!");
 };
 ```
+
+---
+
+**element.innerHTML**  
+요소 노드 내부의 HTML 코드를 문자열로 리턴해 준다.  
+`(내부에 있는 줄 바꿈이나 들여쓰기 모두 포함한다.)`
+
+```javascript
+const myTag = document.querySelector("#list-1");
+
+// innerHTML
+console.log(myTag.innerHTML);
+```
+
+```
+<li>AAAAAAA</li>
+<li>asdasd</li>
+<li>asdasddas</li>
+<li>asdasd</li>
+```
+
+**element.outerHTML**  
+요소 노드 자체의 전체적인 HTML 코드를 문자열로 리턴해준다.  
+`(내부에 있는 줄 바꿈이나 들여쓰기 모두 포함한다.)`
+
+```js
+const myTag = document.querySelector("#list-1");
+
+// outerHTML
+console.log(myTag.outerHTML);
+```
+
+```
+<ul id = "list-1">
+  li>AAAAAAA</li>
+  <li>asdasd</li>
+  <li>asdasddas</li>
+  <li>asdasd</li>
+</ul>
+```
+
+**element.innerText**  
+요소 안의 내용들 중에서 HTML 태그 부분은 제외하고 텍스트만 가져온다.  
+`(내부에 있는 줄 바꿈이나 들여쓰기 모두 포함한다.)`
+
+```js
+const myTag = document.querySelector("#list-1");
+
+// textContext
+console.log(myTag.textContent);
+```
+
+```
+AAAAAAA
+asdasd
+asdasddas
+asdasd
+```
+
+**요소 노드 만들기**: document.createElement('태그이름')  
+**요소 노드 꾸미기**: element.textContent, element.innerHTML, ...  
+**요소 노드 추가 혹은 이동하기**: element.prepend, element.append, element.after, element.before  
+**요소 노드 삭제하기**: element.remove()
+
+```js
+// 요소 노드 추가하기
+const tomorrow = document.querySelector("#tomorrow");
+
+// 1. 요소 노드 만들기: document.createElement('태그이름')
+const first = document.createElement("li");
+
+// 2. 요소 노드 꾸미기: textContent, innerHTML, ...
+first.textContent = "처음";
+
+// 3. 요소 노드 추가하기: NODE.prepend, append, after, before
+tomorrow.prepend(first);
+```
+
+### 스타일 다루기
+
+**style 프로퍼티 활용하기**
+
+```
+element.style.styleName = 'value';
+```
+
+**class 변경을 통해 간접적으로 스타일 적용하기**
+
+```
+element.className, element.classList
+```
+
+### classList의 유용한 메소드
+
+**classList.add**  
+클래스 추가하기 여러 개의 값을 전달하면 여러 클래스 추가 가능  
+**classList.remove**  
+클래스 삭제하기 여러 개의 값을 전달하면 여러 클래스 삭제 가능  
+**classList.toggle**  
+클래스 없으면 추가, 있으면 삭제하기  
+`하나의 값만 적용 가능하고, 두 번째 파라미터로 추가 또는 삭제 기능을 강제할 수 있음`
+
+```js
+const title = document.querySelector(".title");
+```
