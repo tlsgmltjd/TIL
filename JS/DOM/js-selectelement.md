@@ -115,15 +115,34 @@ console.log(myTag.outerHTML);
 </ul>
 ```
 
-**element.innerText**  
+**element.textContent**  
 요소 안의 내용들 중에서 HTML 태그 부분은 제외하고 텍스트만 가져온다.  
 `(내부에 있는 줄 바꿈이나 들여쓰기 모두 포함한다.)`
+
++) `해당 노드가 가지고 있는 텍스트 값을 모두 읽어온다.`
 
 ```js
 const myTag = document.querySelector("#list-1");
 
 // textContext
 console.log(myTag.textContent);
+```
+
+```
+AAAAAAA
+asdasd
+asdasddas
+asdasd
+```
+
+**element.innerText**  
+`textContent`와 비슷하지만 사용자에게 보여지는 값만 가져온다.
+
+```js
+const myTag = document.querySelector("#list-1");
+
+// textContext
+console.log(myTag.innerText);
 ```
 
 ```
