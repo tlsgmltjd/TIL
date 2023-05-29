@@ -156,18 +156,39 @@ flex-wrap: wrap-reverse;
 ### 요소 늘려서 채우기: flex-grow
 
 ```
-
 기본 값은 0, flex-grow 값이 클수록 많이 늘어난다.
 
+남아있는 공간, 여백이 있을 때만 grow 가능
+
+화면이 커질 때, element도 함께 커지길 원할 때 사용
+
+flex-grow property가 0인 상태거나, 따로 정의되지 않았다면,
+화면이 커져도 각 element 크기가 커지지 않고 여백만 늘어난다.
 ```
 
 ### 요소 줄여서 채우기: flex-shrink
 
 ```
+flexbox가 쥐어짤 때, element의 행동의 정의함
 
 flex-shrink의 기본 값이 1이기 때문에 기본적으로 요소를 줄여서 배치하고, 0으로 지정하면 크기가 줄어들지 않는다.
 flex-shrink 값이 클수록 상대적으로 많이 줄어든다.
+```
 
+```css
+.a {
+  flex-shrink: 1;
+}
+.b {
+  flex-shrink: 2;
+}
+.c {
+  flex-shrink: 1;
+}
+```
+
+```
+화면이 작아지면 숫자의 비율만큼 더 작아짐
 ```
 
 ---
