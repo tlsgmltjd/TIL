@@ -100,6 +100,18 @@ justify-content를 사용하면 기본 축 방향으로 정렬할 수 있다.
 기본 값은 stretch(늘려서 배치하기)이다.
 ```
 
+### align-content
+
+```
+line을 변경한다. line은 cross-axis
+```
+
+- justify-content와 비슷하지만 'line'에 관한 것
+
+  > 각 block이 여러 행에 걸쳐 나올 때, 행간 공백을 얼마나 둘 것인지.
+
+- align-content: flex-start; - align-content: `space-around`;
+
 ### align-self
 
 ```
@@ -117,9 +129,26 @@ order의 경우 단어 그대로 순서를 바꾼다.
 ### 요소가 넘칠 때: flex-wrap
 
 ```
-
 교차 축 방향으로 넘어가서 배치됨.
+flexbox는 width보다도, '같은 줄'에 있도록 하는 것을 우선시 한다.
+```
 
+```js
+flex-wrap: wrap;
+// child의 사이즈를 모두 유지하면서 배치
+// 가로로 꽉 찼다면 아래로 배치됨
+flex-wrap: nowrap;
+// child를 모두 같은 줄에 정렬함, 이때 width가 줄어들 수 있음
+```
+
+### reverse
+
+```js
+flex-direction: row-reverse; // or column-reverse;
+// 오른쪽 or 왼쪽 에서부터 1이 시작
+
+flex-wrap: wrap-reverse;
+// 한 줄이 되지 않아도 아래에서 위로 정렬되게
 ```
 
 ### 간격: gap
