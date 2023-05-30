@@ -134,3 +134,20 @@ let arr = new Array(1, 2, 3);
 - 자식들이 값을 직접 소유하게 만들고 싶으면 `constructor`로 상속
 
 - 부모만 가지고 있고 그걸 참조해서 쓰게 만들고 싶으면 `prototype`으로 상속
+
+---
+
+### 최신 문법으로 상속 구현하기
+
+### Object.create()
+
+```js
+let father = { name: "Kim", age: 50 };
+let son = Object.create(father);
+
+console.log(son.age);
+// 50
+```
+
+- `Object.create(부모object);`
+- `(부모object)`가 `prototype`가 되는 것이다.
