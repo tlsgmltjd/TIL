@@ -59,3 +59,52 @@ let product2 = new Products("shoes", 60000);
 
 product1.Buga_Pee();
 ```
+
+---
+
+### class 를 이용하여 constructor 만들기
+
+```js
+class father {
+  constructor() {
+    this.name = "Kim";
+  }
+}
+
+let son = new father();
+```
+
+<br />
+
+```js
+class father {
+  constructor() {
+    this.sayHi = function () {
+      console.log("hi");
+    };
+  }
+  sayHello() {
+    console.log("hello");
+  }
+}
+```
+
+- sayHi() 함수는 father 객체의 `메서드` 이고
+- sayHello() 함수는 father 객체의 `prototype` 이다.
+
+### Object.getPrototypeOf()
+
+```js
+class father {
+  constructor() {
+    this.name = "Kim";
+  }
+}
+
+let son = new father();
+
+console.log(son.__proto__);
+console.log(Object.getPrototypeOf(son));
+```
+
+- `son.__proto__` == `Object.getPrototypeOf(son)`
