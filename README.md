@@ -57,5 +57,7 @@
 - [this](https://github.com/tlsgmltjd/TIL/blob/main/JS/this.md)
 - [Arrow Function =>](https://github.com/tlsgmltjd/TIL/blob/main/JS/ArrowFunction.md)
 - [CallBack Function](https://github.com/tlsgmltjd/TIL/blob/main/JS/CallBackFunction.md)
-- [constructor](https://github.com/tlsgmltjd/TIL/blob/main/JS/constructor.md)
-- [prototype](https://github.com/tlsgmltjd/TIL/blob/main/JS/prototype.md)
+- 상속
+  - [constructor](https://github.com/tlsgmltjd/TIL/blob/main/JS/constructor.md)
+  - [prototype](https://github.com/tlsgmltjd/TIL/blob/main/JS/prototype.md)
+  - [class](https://github.com/tlsgmltjd/TIL/blob/main/JS/class.md)
