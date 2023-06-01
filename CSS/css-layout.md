@@ -257,6 +257,30 @@ grid cell 내부의 contents 의 배치방식을 일괄적으로 적용하는데
 ▷ end : item을 cell 끝에 배치한다.
 ```
 
+### justify-self / align-self
+
+```css
+align-self: center;
+justify-self: Center
+place-self: (수직) (수평);
+
+▷ child에만 적용돠는 property이다.
+```
+
+### grid-auto
+
+```css
+● grid-auto-rows: 50px;
+▷ 만들어놓은 row보다 더 많은 content가 있으면, 자동으로 (50px)row를 만들어라.
+
+● grid-auto-flow: (방향); [기본값: row]
+▷ flex-direction과 비슷하다.
+▷ row가 끝날 때 새로운 row를 만들지, 새로운 column을 만들지 결정한다.
+
+● grid-auto-columns: (크기);
+▷ grid-auto-flow: column;일때 작동한다.
+```
+
 ### 최소, 최대값
 
 ```
