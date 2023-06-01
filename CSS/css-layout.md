@@ -238,6 +238,25 @@ grid-template-columns: repeat(3, 1fr);
 grid-template-rows: 150px 200px;
 ```
 
+### jutify-items / align-items
+
+```css
+justify-items: center;
+align-items: center;
+
+// short cut
+place-items: center center;
+```
+
+```
+grid cell 내부의 contents 의 배치방식을 일괄적으로 적용하는데 사용
+
+▷ stretch : grid를 늘려서 grid를 채우게 한다. [기본값]
+▷ start : item을 cell 시작에 배치한다.
+▷ center : item을 cell 중앙에 배치한다.
+▷ end : item을 cell 끝에 배치한다.
+```
+
 ### 최소, 최대값
 
 ```
