@@ -63,6 +63,8 @@
   - [class](https://github.com/tlsgmltjd/TIL/blob/main/JS/class.md)
 - [getter setter](https://github.com/tlsgmltjd/TIL/blob/main/JS/getter-setter.md)
 
+### TypeScript
+
 ### React
 
 - [React](https://github.com/tlsgmltjd/TIL/blob/main/React/what-is-react.md)
