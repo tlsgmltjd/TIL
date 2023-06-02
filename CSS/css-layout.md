@@ -310,6 +310,39 @@ grid-template-columns: repeat(3, minmax(200px, 1fr));
 grid-template-rows: 150px 200px;
 ```
 
+### auto-fill / auto-fit
+
+```
+auto-fit, auto-fill은 전부 repeat() 함수 안에서만 동작한다.
+repeat()의 첫번째 인자로 직접 숫자를 쓰는 것보다
+auto-fill, auto-fit 둘 중 하나를 쓰는 것이 좋음
+```
+
+```css
+grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+// 창 너비가 늘어나면 빈 column들로 row를 채움
+
+grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+// 창 너비가 늘어나면 element를 늘려서 row에 맞게 해줌
+```
+
+### min-content max-content
+
+```css
+div 내부 컨텐츠에 따라서 셀의 크기를 조절하는 것.
+
+grid-template-columns: max-content min-content;
+// 1열은 컨텐츠를 나타내는 최대 사이즈로, 2열은 최소 사이즈로 열의 너비를 조정
+
+Minmax와 결합가능
+
+grid-template-columns: repeat(auto-fit, minmax(20px, max-content));
+
+max-content를 최소값으로 두면, 컨텐츠를 다 싸고 있는 영역으로 최소값이 설정
+
+min-content를 최소값으로 두면, 창이 줄었을 때, 컨텐츠가 들어갈 수 있는 최소한의 영역만 보존됨
+```
+
 ### 간격 넣기
 
 ```css
