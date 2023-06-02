@@ -281,10 +281,27 @@ place-self: (수직) (수평);
 ▷ grid-auto-flow: column;일때 작동한다.
 ```
 
+### justify-content / align-content
+
+```
+items는 각각의 cell을 의미한다면 content는 그리드 전체를 의미한다.
+즉, 그리드 전체를 이동시킨다는 뜻
+```
+
+```css
+justify-content: center;
+align-content: center;
+
+// short cut
+place-content: center center;
+```
+
 ### 최소, 최대값
 
 ```
+
 화면 너비가 작아지더라도 컬럼의 너비는 200px보다 작아지지는 않고, 화면 너비가 넓어지면 컬럼의 너비는 1 : 1 : 1 비율로 늘어난다.
+
 ```
 
 ```css
