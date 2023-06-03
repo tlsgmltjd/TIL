@@ -70,3 +70,4 @@
 ### React
 
 - [React](https://github.com/tlsgmltjd/TIL/blob/main/React/what-is-react.md)
+- [component](https://github.com/tlsgmltjd/TIL/blob/main/React/component.md)
