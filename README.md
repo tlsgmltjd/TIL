@@ -65,6 +65,8 @@
 
 ### TypeScript
 
+- [TypeScript](https://github.com/tlsgmltjd/TIL/blob/main/TypeScript/what-is-typesctipt.md)
+
 ### React
 
 - [React](https://github.com/tlsgmltjd/TIL/blob/main/React/what-is-react.md)
