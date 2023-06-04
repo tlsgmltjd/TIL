@@ -38,4 +38,4 @@ function App() {
 export default App;
 ```
 
-> 이렇게도 됨
+> 이렇게 구조분해할당 문법을 적용할 수 있음
