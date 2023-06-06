@@ -73,4 +73,4 @@
 - [component](https://github.com/tlsgmltjd/TIL/blob/main/React/component.md)
 - [props](https://github.com/tlsgmltjd/TIL/blob/main/React/props.md)
 - [useState](https://github.com/tlsgmltjd/TIL/blob/main/React/useState.md)
-- [useEffect](https://github.com/tlsgmltjd/TIL/blob/main/React/useState.md)
+- [useEffect](https://github.com/tlsgmltjd/TIL/blob/main/React/useEffect.md)
