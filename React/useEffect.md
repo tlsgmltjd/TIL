@@ -2,6 +2,8 @@
 
 컴포넌트가 `Mount`, `Update`, `Unmount` 되었을 때 코드를 실행하고 싶을 때 사용한다.
 
+![LifeCycleHook](https://codingapple.com/wp-content/uploads/2022/04/%EC%BA%A1%EC%B2%987.png)
+
 > 많이 사용하는 사례는  
 > **데이터 가져오기**, **상태 업데이트**, **구독 및 정리**에 사용된다.
 
