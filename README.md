@@ -73,5 +73,6 @@
 - [React](https://github.com/tlsgmltjd/TIL/blob/main/React/what-is-react.md)
 - [component](https://github.com/tlsgmltjd/TIL/blob/main/React/component.md)
 - [props](https://github.com/tlsgmltjd/TIL/blob/main/React/props.md)
+- [event handler](https://github.com/tlsgmltjd/TIL/blob/main/React/event-handler.md)
 - [useState](https://github.com/tlsgmltjd/TIL/blob/main/React/useState.md)
 - [useEffect](https://github.com/tlsgmltjd/TIL/blob/main/React/useEffect.md)
