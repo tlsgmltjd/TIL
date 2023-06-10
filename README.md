@@ -62,6 +62,7 @@
   - [prototype](https://github.com/tlsgmltjd/TIL/blob/main/JS/prototype.md)
   - [class](https://github.com/tlsgmltjd/TIL/blob/main/JS/class.md)
 - [getter setter](https://github.com/tlsgmltjd/TIL/blob/main/JS/getter-setter.md)
+- [import export](https://github.com/tlsgmltjd/TIL/blob/main/JS/import-export.md)
 
 ### TypeScript
 
