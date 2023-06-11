@@ -48,3 +48,29 @@ myPromise
 #### Promise는 동기를 비동기로 만들어주는 코드가 아니다.
 
 - Promise는 비동기적 실행과 전혀 상관이 없다.
+
+---
+
+> Coding-Test
+
+```js
+const helloPromise = new Promise(function (resovled, rejected) {
+  $.get("https://codingapple1.github.io/hello.txt").done((res) => {
+    resovled(res);
+  });
+});
+
+helloPromise.then((res) => {
+  const hello2Promise = new Promise(function (resovled, rejected) {
+    $.get("https://codingapple1.github.io/hello2.txt")
+      .done((res) => {
+        resovled(res);
+      })
+      .then((res) => {
+        console.log(res);
+      });
+  });
+
+  return hello2Promise;
+});
+```
