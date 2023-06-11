@@ -64,6 +64,8 @@
   - [class](https://github.com/tlsgmltjd/TIL/blob/main/JS/class.md)
 - [getter setter](https://github.com/tlsgmltjd/TIL/blob/main/JS/getter-setter.md)
 - [import export](https://github.com/tlsgmltjd/TIL/blob/main/JS/import-export.md)
+- 동기 비동기
+  - [Synchronous Asynchronous](https://github.com/tlsgmltjd/TIL/blob/main/JS/Synchronous-Asynchronous.md)
 
 ### TypeScript
 
