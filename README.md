@@ -66,6 +66,7 @@
 - [import export](https://github.com/tlsgmltjd/TIL/blob/main/JS/import-export.md)
 - 동기 비동기
   - [Synchronous Asynchronous](https://github.com/tlsgmltjd/TIL/blob/main/JS/Synchronous-Asynchronous.md)
+  - [Promise](https://github.com/tlsgmltjd/TIL/blob/main/JS/Promise.md)
 
 ### TypeScript
 
