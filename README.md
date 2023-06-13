@@ -85,3 +85,4 @@
 - [useEffect](https://github.com/tlsgmltjd/TIL/blob/main/React/useEffect.md)
 - **[CustomHooks](https://github.com/tlsgmltjd/TIL/blob/main/React/CustomHooks/what-is-customhooks.md)**
   - [useInput](https://github.com/tlsgmltjd/TIL/blob/main/React/CustomHooks/useInput.md)
+  - [useTabs](https://github.com/tlsgmltjd/TIL/blob/main/React/CustomHooks/useTabs.md)
