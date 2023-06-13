@@ -50,6 +50,27 @@ console.log(toSum(10, 20)); // 30
 
 > **매개변수의 타입지정**과 **리턴 값의 타입지정**이 가능하다.
 
+### 반환 값이 없는 함수의 타입 지정
+
+```ts
+function toSum(): void {}
+
+console.log(toSum());
+```
+
+#### Option
+
+```ts
+function toSum(a?: number): void {}
+
+console.log(toSum());
+```
+
+> `a` 라는 파라미터가 들어올 수도 있고 안 들어올 수도 있다.
+
+> `(a?: number)` = `(a: number | undefined)`  
+> 이 둘은 같다!
+
 ### 여러 타입 허용(Union type)
 
 ```ts
