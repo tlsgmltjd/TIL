@@ -2,7 +2,7 @@
 
 ![](https://codingapple.com/wp-content/uploads/2020/04/271c176806330.jpeg)
 
-![](https://velog.velcdn.com/images/dlrkdals227/post/8b3d9a1f-754d-4670-969f-710ebc4c250d/image.png)
+![](https://bakey-api.codeit.kr/api/files/resource?root=static&seqId=4365&directory=Untitled.png&name=Untitled.png)
 
 자바스크립트에서는 거의 대부분의 작업들이 **비동기**로 이루어진다.
 
