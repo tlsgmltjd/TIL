@@ -151,6 +151,13 @@ font-size: 2rem;
 ### 자주 쓰는 CSS 속성
 
 ```css
+width: 100%; 가로 크기 지정
+height: 100%; 세로 크기 지정
+
+max-width: 500px; 요소의 최대 너비를 제한하는 속성
+```
+
+```css
 TEXT
 
 글자 색 color
