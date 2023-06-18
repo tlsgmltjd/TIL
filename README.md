@@ -89,3 +89,4 @@
   - [useTabs](https://github.com/tlsgmltjd/TIL/blob/main/React/CustomHooks/useTabs.md)
   - [useTitle](https://github.com/tlsgmltjd/TIL/blob/main/React/CustomHooks/useTitle.md)
   - [useClick](https://github.com/tlsgmltjd/TIL/blob/main/React/CustomHooks/useClick.md)
+  - [useConfirm](https://github.com/tlsgmltjd/TIL/blob/main/React/CustomHooks/useClick.md)
