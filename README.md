@@ -82,6 +82,7 @@
 - [component](https://github.com/tlsgmltjd/TIL/blob/main/React/component.md)
 - [props](https://github.com/tlsgmltjd/TIL/blob/main/React/props.md)
 - [event handler](https://github.com/tlsgmltjd/TIL/blob/main/React/event-handler.md)
+- [style](<(https://github.com/tlsgmltjd/TIL/blob/main/React/style.md)>)
 - [useState](https://github.com/tlsgmltjd/TIL/blob/main/React/useState.md)
 - [useEffect](https://github.com/tlsgmltjd/TIL/blob/main/React/useEffect.md)
 - **[CustomHooks](https://github.com/tlsgmltjd/TIL/blob/main/React/CustomHooks/what-is-customhooks.md)**
