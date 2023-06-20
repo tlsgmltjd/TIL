@@ -52,3 +52,135 @@ const Header = () => {
   return <h1>{data}</h1>;
 };
 ```
+
+---
+
+#### Dark Mode
+
+- **ThemeContext**
+
+```jsx
+import { createContext } from "react";
+
+// createContext의 초기값은
+// 상위 컴포넌트에 <ThemeContext.Provider> ... 로 감싸주지 않았을 때 받아지는 값이다.
+export const ThemeContext = createContext(null);
+```
+
+- App
+
+```jsx
+import { useState } from "react";
+import { Page } from "./components/Page";
+import { ThemeContext } from "styled-components";
+
+const App = () => {
+  const [isDark, setIsDark] = useState(false);
+
+  return (
+    <ThemeContext.Provider value={{ isDark, setIsDark }}>
+      <Page />;
+    </ThemeContext.Provider>
+  );
+};
+
+export default App;
+```
+
+- Page
+
+```jsx
+import { Content } from "./Content";
+import { Footer } from "./Footer";
+import { Header } from "./Header";
+
+export const Page = () => {
+  return (
+    <div className="page">
+      <Header />
+      <Content />
+      <Footer />
+    </div>
+  );
+};
+```
+
+- Header
+
+```jsx
+import { useContext } from "react";
+import { ThemeContext } from "styled-components";
+
+export const Header = () => {
+  const data = useContext(ThemeContext);
+
+  const { isDark } = data;
+
+  return (
+    <header
+      className="header"
+      style={{
+        backgroundColor: isDark ? "#2d333b" : "lightgray",
+        color: isDark ? "white" : "black",
+      }}
+    >
+      <h1>HEADER</h1>
+    </header>
+  );
+};
+```
+
+- Content
+
+```jsx
+import { useContext } from "react";
+import { ThemeContext } from "styled-components";
+
+export const Content = () => {
+  const data = useContext(ThemeContext);
+
+  const { isDark } = data;
+
+  return (
+    <main
+      className="content"
+      style={{
+        backgroundColor: isDark ? "#545d68" : "white",
+        color: isDark ? "white" : "black",
+      }}
+    >
+      <p>Content</p>
+    </main>
+  );
+};
+```
+
+- Footer
+
+```jsx
+import { useContext } from "react";
+import { ThemeContext } from "styled-components";
+
+export const Footer = () => {
+  const data = useContext(ThemeContext);
+
+  const { isDark, setIsDark } = data;
+
+  const toggleTheme = () => {
+    setIsDark(!isDark);
+  };
+
+  return (
+    <footer
+      className="footer"
+      style={{
+        backgroundColor: isDark ? "#2d333b" : "lightgray",
+      }}
+    >
+      <button className="Button" onClick={toggleTheme}>
+        DarkMode
+      </button>
+    </footer>
+  );
+};
+```
