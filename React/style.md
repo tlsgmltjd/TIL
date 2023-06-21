@@ -132,9 +132,9 @@ const Container = styled.div`
 
 ---
 
-## Nesting
+### Nesting
 
-### 가상 선택자
+### 1. 가상 선택자
 
 ```jsx
 const Box = styled.div`
@@ -162,7 +162,7 @@ const App = () => {
 
   > `Box` 컴포넌트에 `:hover` 선택자 등록
 
-### 컴포넌트 선택자
+### 2. 컴포넌트 선택자
 
 ```jsx
 import styled from "styled-components";
@@ -224,3 +224,29 @@ const StyledButton = styled.button`
 ```
 
 ---
+
+### 상속
+
+### styled() 함수
+
+- **`Styled Components`로 만들어진 컴포넌트를 상속하려면** **`styled()` 함수**를 이용한다.
+
+```jsx
+const Button = styled.button`
+    ...
+`;
+
+const SubmitButton = styled(Button)`
+    ...
+`;
+
+function App() {
+  return (
+    <div>
+      <SubmitButton>계속하기</SubmitButton>
+    </div>
+  );
+}
+```
+
+- **`styled(Button)`** : 이렇게 하면 `SubmitButton`이 `Button`의 스타일을 상속받게된다.
