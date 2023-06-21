@@ -98,6 +98,9 @@ export default App;
 const Button = styled.button`
   color: ${(props) => props.color};
 `;
+
+// 이렇게 구조분해할당 문법을 사용하여 표현도 가능하다.
+// color: ${({color}) => color};
 ```
 
 ```jsx
@@ -105,7 +108,7 @@ const Button = styled.button`
 
 const App = () => {
   return (
-    <Button color={"red"} >Hello</Button>
+    <Button color="red" >Hello</Button>
   );
 
 ...
@@ -129,7 +132,9 @@ const Container = styled.div`
 
 ---
 
-## 가상 선택자
+## Nesting
+
+### 가상 선택자
 
 ```jsx
 const Box = styled.div`
@@ -156,3 +161,66 @@ const App = () => {
 - `Styled Components`에서 `&`를 사용하면 **현재 컴포넌트** 자체를 선택할 수 있다.
 
   > `Box` 컴포넌트에 `:hover` 선택자 등록
+
+### 컴포넌트 선택자
+
+```jsx
+import styled from "styled-components";
+import nailImg from "./nail.png";
+
+const Icon = styled.img`
+  width: 16px;
+  height: 16px;
+`;
+
+const StyledButton = styled.button`
+  background-color: #6750a4;
+  border: none;
+  color: #ffffff;
+  padding: 16px;
+
+  & ${Icon} {
+    margin-right: 4px;
+  }
+
+  &:hover,
+  &:active {
+    background-color: #463770;
+  }
+`;
+```
+
+- `StyeldButton` 안에 `Icon` 이 배치되어있다.
+
+* **`StyledButton` 컴포넌트 안에서 `Icon` 컴포넌트를 선택해** 별도로 `margin-right: 4px`라는 속성을 지정하는 코드이다.
+
+- 이렇게 **컴포넌트를 선택자로 쓰고 싶을 때**는 `${Icon}`같이 **컴포넌트 자체를 템플릿 리터럴 안에 넣어주면** 된다.
+
+```css
+.StyledButton .Icon {
+  margin-right: 4px;
+}
+```
+
+> 기존 CSS로 쓰면 이런 느낌
+
+> **`&`와 자손 결합자를 사용하는 경우**에는 `&`를 생략도 가능하다.
+
+<br />
+
+- `Nesting`은 여러 겹으로 할 수도 있다.
+
+```jsx
+const StyledButton = styled.button`
+  ... &:hover,
+  &:active {
+    background-color: #7760b4;
+
+    ${Icon} {
+      opacity: 0.2;
+    }
+  }
+`;
+```
+
+---
