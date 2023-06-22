@@ -250,3 +250,51 @@ function App() {
 ```
 
 - **`styled(Button)`** : 이렇게 하면 `SubmitButton`이 `Button`의 스타일을 상속받게된다.
+
+---
+
+### 에니메이션
+
+- css 코드로 키프레임을 구현할 수 있다.
+
+```html
+<div class="ball"></div>
+```
+
+```css
+@keyframes bounce {
+  0% {
+    transform: translateY(0%);
+  }
+
+  50% {
+    transform: translateY(100%);
+  }
+
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+.ball {
+  animation: bounce 1s infinite;
+  ...;
+}
+```
+
+> `@keyframes`로 키프레임 애니메이션을 선언 `->` `animation` 속성에서 사용
+
+#### styled-components 로 구현
+
+```jsx
+import styled, { keyframes } from "styled-components";
+
+// keyframes 함수를 사용
+const placeholderGlow = keyframes` 50% { opacity: 0.2; }`;
+
+const Placeholder = styled.div`
+  animation: ${placeholderGlow} 2s ease-in-out infinite;
+`;
+```
+
+- `keyframes` 함수를 이용한다. 이 함수도 마찬가지로 템플릿 리터럴로 사용하는 태그 함수이다.
