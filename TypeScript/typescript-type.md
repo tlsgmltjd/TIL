@@ -126,3 +126,56 @@ type myTuple : [number , boolean , string];
 
 myTuple = [000 , true , "Hello World"];
 ```
+
+---
+
+### Call Signatures
+
+> 코드에 마우스 올리면 나오는 것
+
+> Call signature는 함수의 타입을 정의하는 것이다.
+
+```ts
+type Add = (a: number, b: number) => number;
+
+// or
+// type Add = { (a: number, b: number) : number };
+
+const doAdd: Add = (a, b) => a + b;
+```
+
+### Overloading
+
+> 오버로딩은 함수가 여러개의 call signature를 가지고 있을때 사용한다.
+
+```ts
+type Add = {
+  (a: number, b: number): number;
+  (a: number, b: string): number;
+};
+
+const add: Add = (a, b) => {
+  if (typeof b == "string") return a;
+  return a + b;
+};
+```
+
+```ts
+type Config = {
+  path: string;
+  state?: number;
+};
+
+type Push = {
+  (path: stirng): viod;
+  (config: Config): void;
+};
+
+const push: Push = (config) => {
+  if (typeof config === "string") {
+    console.log(config);
+  } else {
+    console.log(config);
+  }
+};
+```
