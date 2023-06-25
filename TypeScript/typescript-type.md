@@ -88,3 +88,41 @@ value = 10;
 let muArray: (number | string)[] = [1, "2", 3];
 let myObject: { data: number | string } = { name: "abc" };
 ```
+
+---
+
+### readonly
+
+> readonly가 있으면 최초 선언 후 수정 불가
+
+```ts
+const People: { readonly name: string } = {
+  name: "ABC",
+};
+
+People.name = "DEF"; // error
+```
+
+### Alias(별칭) 타입
+
+```ts
+type Player = {
+  name: string;
+  age?: number;
+};
+
+let Jineon: Player = {
+  name: "Jinheon",
+  age: 17,
+};
+```
+
+### 튜플 타입 (Tuple)
+
+> 튜플은 길이와 각 요소마다의 타입이 고정된 배열이다
+
+```ts
+type myTuple : [number , boolean , string];
+
+myTuple = [000 , true , "Hello World"];
+```
