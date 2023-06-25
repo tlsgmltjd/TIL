@@ -24,3 +24,5 @@ const useScrool = () => {
   return state;
 };
 ```
+
+> 사용자의 스크롤 위치를 가져올 수 있음

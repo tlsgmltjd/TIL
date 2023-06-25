@@ -22,6 +22,8 @@ let value: boolean = true;
 
 ```ts
 let value: number[] = [1, 2, 3];
+
+let value2: Array<number> = [1, 2, 3];
 ```
 
 ### 객체(Object)
