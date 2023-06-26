@@ -50,6 +50,7 @@
 - [webStorage](https://github.com/tlsgmltjd/TIL/blob/main/JS/webStorage.md)
 - [Array Function](https://github.com/tlsgmltjd/TIL/blob/main/JS/ArrayFunction.md)
 - [Slice vs Splice vs Split](https://github.com/tlsgmltjd/TIL/blob/main/JS/Slice-Splice-Split.md)
+- [every some](https://github.com/tlsgmltjd/TIL/blob/main/JS/every-some.md)
 - [ShallowCopy? DeepCopy?](https://github.com/tlsgmltjd/TIL/blob/main/JS/ShallowCopy-DeepCopy.md)
 - [Destructuring](https://github.com/tlsgmltjd/TIL/blob/main/JS/Destructuring.md)
 - [Spread-Rest](https://github.com/tlsgmltjd/TIL/blob/main/JS/Spread-Rest.md)
