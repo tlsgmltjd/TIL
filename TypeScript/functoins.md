@@ -64,7 +64,7 @@ type Print = {
 
 const print: Print = (arr) => arr[0]; // 배열의 첫번째 요소를 리턴
 
-superPrint([1, 2, 3]); // (arr: number[]) => number
-superPrint(["a", "b", "c"]); // (arr: string[]) => string
-superPrint([1, "a", 2, "b"]); // (arr: (string | number)[]) => string | number
+print([1, 2, 3]); // (arr: number[]) => number
+print(["a", "b", "c"]); // (arr: string[]) => string
+print([1, "a", 2, "b"]); // (arr: (string | number)[]) => string | number
 ```
