@@ -68,3 +68,13 @@ print([1, 2, 3]); // (arr: number[]) => number
 print(["a", "b", "c"]); // (arr: string[]) => string
 print([1, "a", 2, "b"]); // (arr: (string | number)[]) => string | number
 ```
+
+> 이렇게도 사용가능
+
+```ts
+type Print = {
+  <T, M>(a: T[], b: M): T;
+};
+
+const print: Print = (a) => a[0];
+```
