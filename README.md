@@ -76,6 +76,7 @@
 
 - [TypeScript](https://github.com/tlsgmltjd/TIL/blob/main/TypeScript/what-is-typesctipt.md)
 - [Types](https://github.com/tlsgmltjd/TIL/blob/main/TypeScript/typescript-type.md)
+- [functions](https://github.com/tlsgmltjd/TIL/blob/main/TypeScript/functions.md)
 
 ### React
 
