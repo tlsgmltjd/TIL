@@ -77,4 +77,7 @@ type Print = {
 };
 
 const print: Print = (a) => a[0];
+
+const a = printf([1, 2, 3], "hi");
+s;
 ```
