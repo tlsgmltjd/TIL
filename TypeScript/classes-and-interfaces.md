@@ -48,25 +48,61 @@ public 　　　　　 ⭕ 　　　　　　　 ⭕ 　　　　　 ⭕
 <br />
 
 ```ts
+type Words = {
+  [key: string]: string;
+};
+
 class Dict {
+  private words: Words;
+
   constructor() {
     this.words = {};
   }
-  add(word) {
+
+  // 단어 추가 메서드
+  add(word: Word) {
     if (this.words[word.term] === undefined) {
       this.words[word.term] = word.def;
     }
   }
-  def(term) {
+
+  // 단어 삭제 메서드
+  del(term: string) {
+    if (!(this.words[term] == undefined)) {
+      delete this.words[term];
+    }
+  }
+
+  // 모든 단어 출력 메서드
+  all() {
+    for (let i in this.words) {
+      console.log(`${i} : ${this.words[i]}`);
+    }
+  }
+
+  // 단어 찾아서 반환 메서드
+  def(term: string) {
     return this.words[term];
   }
 }
+
 class Word {
-  constructor(term, def) {
-    this.term = term;
-    this.def = def;
-  }
+  constructor(public term: string, public def: string) {}
 }
+
 const kimchi = new Word("김치", "한국의 음식");
+const rice = new Word("밥", "한국의 음식");
+const pizza = new Word("피자", "한국의 음식이 아님");
+
 const dict = new Dict();
+
+dict.add(kimchi);
+dict.add(rice);
+dict.add(pizza);
+
+dict.del("김치");
+
+dict.all();
+// [LOG]: "밥 : 한국의 음식"
+// [LOG]: "피자 : 한국의 음식이 아님"
 ```
