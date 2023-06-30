@@ -127,7 +127,7 @@ const StyledButton = styled.button`
   color: #ffffff;
   padding: 16px;
 
-  & ${Icon} {
+  ${Icon} {
     margin-right: 4px;
   }
 
@@ -197,6 +197,39 @@ function App() {
     <Wrapper>
       <Box>
         <span>😊</span>
+      </Box>
+    </Wrapper>
+  );
+}
+```
+
+```jsx
+const Emoji = styled.span`
+  cursor: pointer;
+  font-size: 36px;
+`;
+
+const Box = styled.div`
+  height: 200px;
+  width: 200px;
+  background-color: tomato;
+  animation: ${rotationAnimation} 2s ease infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  ${Emoji} {
+    &:hover {
+      font-size: 40px;
+    }
+  }
+`;
+
+function App() {
+  return (
+    <Wrapper>
+      <Box>
+        <Emoji>😊</Emoji>
       </Box>
     </Wrapper>
   );
