@@ -109,7 +109,7 @@ dict.all();
 
 ## Interfaces
 
-- 객체의 타입을 특정해주기 위해 사용한다.
+- 오브젝트나 클래스의 타입을 특정해주기 위해 사용한다.
 
 ```ts
 interface Person {
@@ -140,7 +140,30 @@ interface Player extends User {
 }
 
 const user1: Player = {
-  name: "jinheon",
+  name: "jinheon", // 상속 받은 속성 사용가능
   age: 17,
 };
+```
+
+---
+
+```ts
+// 추상 클래스는 그 자신만으로 인스턴스를 만들 수 없다.
+// 상속 받는 클래스가 어떻게 동작해야할 지 알려주기 위해 사용한다.
+// 추상 클래스로 만들면 JS로 변환될 때 일반 클래스로 변환된다.
+abstract class User {
+  constructor(protected firstName: string, protected lastName: string) {}
+
+  abstract sayHi(name: string): string;
+  abstract fullName(): string;
+}
+
+class Player extends User {
+  fullName() {
+    return `${this.firstName} ${this.lastName}`;
+  }
+  sayHi(name: string) {
+    return `Hello ${name}! My name is ${this.fullName()}`;
+  }
+}
 ```
