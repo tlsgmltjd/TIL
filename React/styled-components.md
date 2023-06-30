@@ -199,6 +199,34 @@ function App() {
 
 - **`styled(Button)`** : 이렇게 하면 `SubmitButton`이 `Button`의 스타일을 상속받게된다.
 
+```jsx
+const Father = styled.div`
+  display: flex;
+`;
+
+const Box = styled.div`
+  background-color: ${(props) => props.bgColor};
+  width: 100px;
+  height: 100px;
+`;
+
+// 다른 컴포넌트의 스타일을 상속하는 새 컴포넌트를 만들려면
+// styled() 생성자에 구성한다.
+// Box의 style을 모두 가짐(상속 받음)
+const Circle = styled(Box)`
+  border-radius: 50px;
+`;
+
+function App() {
+  return (
+    <Father>
+      <Box bgColor="teal" />
+      <Circle bgColor="tomato" />
+    </Father>
+  );
+}
+```
+
 ---
 
 ### 에니메이션
