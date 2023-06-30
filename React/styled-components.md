@@ -229,6 +229,48 @@ function App() {
 
 ---
 
+### as
+
+- `as` 를 사용하여 다른 엘리먼트로 변경이 가능하다.
+
+```jsx
+const Father = styled.div`
+  display: flex;
+`;
+
+function App() {
+  return <Father as="header"></Father>;
+}
+```
+
+---
+
+### 속성추가
+
+- Styled Components에서는 html 태그의 속성도 지정할 수가 있다.
+
+* `.attrs()`
+
+```jsx
+const Father = styled.div`
+  display: flex;
+`;
+
+const Input = styled.input.attrs({ minLength: 10 })`
+  background-color: tomato;
+`;
+
+function App() {
+  return (
+    <Father as="main">
+      <Input />
+    </Father>
+  );
+}
+```
+
+---
+
 ### 에니메이션
 
 - css 코드로 키프레임을 구현할 수 있다.
