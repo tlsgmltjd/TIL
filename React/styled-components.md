@@ -171,6 +171,38 @@ const StyledButton = styled.button`
 `;
 ```
 
+> `Box` 컴포넌트 안의 `span` 태그를 **`Box` 스타일 컴포넌트에서 선택하는** 모습
+
+```jsx
+const Box = styled.div`
+  height: 200px;
+  width: 200px;
+  background-color: tomato;
+  animation: ${rotationAnimation} 2s ease infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  span {
+    cursor: pointer;
+    font-size: 36px;
+    &:hover {
+      font-size: 40px;
+    }
+  }
+`;
+
+function App() {
+  return (
+    <Wrapper>
+      <Box>
+        <span>😊</span>
+      </Box>
+    </Wrapper>
+  );
+}
+```
+
 ---
 
 ### 상속
