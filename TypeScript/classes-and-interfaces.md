@@ -109,4 +109,38 @@ dict.all();
 
 ## Interfaces
 
-- 타입 명시를 위해 사용되며, 변수, 함수, 클래스 등에 사용되며 인터페이스를 사용하여 코드의 재사용성을 높힌다.
+- 객체의 타입을 특정해주기 위해 사용한다.
+
+```ts
+interface Person {
+  name: string;
+}
+
+// 똑같다
+/*
+type Person = {
+  name: string;
+};
+*/
+
+const user1: Person = {
+  name: "jinheon",
+};
+```
+
+- interface는 상속의 개념을 사용할 수 있다.
+
+```ts
+interface User {
+  name: string;
+}
+
+interface Player extends User {
+  age: number;
+}
+
+const user1: Player = {
+  name: "jinheon",
+  age: 17,
+};
+```
