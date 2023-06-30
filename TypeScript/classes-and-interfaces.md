@@ -167,3 +167,79 @@ class Player extends User {
   }
 }
 ```
+
+### implements
+
+- `implements`을 사용하여 `클래스`가 `특정 인터페이스를 충족하는지` 확인할 수 있다.
+
+> interface와 implements를 사용하여 표현
+
+```ts
+interface User {
+  firstName: string;
+  lastName: string;
+  sayHi(name: string): string;
+  fullName(): string;
+}
+
+interface Human {
+  health: number;
+}
+
+class Player implements User, Human {
+  constructor(
+    public firstName: string,
+    public lastName: string,
+    public health: number
+  ) {}
+  fullName() {
+    return `${this.firstName} ${this.lastName}`;
+  }
+  sayHi(name: string) {
+    return `Hello ${name}! My name is ${this.fullName()}`;
+  }
+}
+```
+
+---
+
+- `interface` vs `type`
+
+```ts
+type PlayerA = {
+  name: string;
+};
+
+type PlayerAA = PlayerA & {
+  lastName: string;
+};
+
+const playerA: PlayerAA = {
+  name: "jinheon",
+  lastName: "xxx",
+};
+
+/////
+
+interface PlayerB {
+  name: string;
+}
+
+interface PlayerB {
+  lastName: string;
+}
+
+interface PlayerB {
+  health: number;
+}
+
+const playerB: PlayerB = {
+  name: "jinheon",
+  lastName: "xxx",
+  health: 10,
+};
+```
+
+---
+
+- interface 끼리 상속은 extends를 사용하며 class 상속은 implements를 사용
