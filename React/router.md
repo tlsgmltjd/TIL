@@ -92,3 +92,29 @@ const navigate = useNavigate();
 
 navigate(/main);
 ```
+
+### 동적인 경로 다루기
+
+- `콜론 (:)` 으로 시작하는 문자열을 사용하면 경로에 파라미터를 지정할 수 있다.
+
+- 예를 들어 아래처럼 `/:coinId` 라는 경로는 `/123` 이라던지 `/abc` 라는 주소로 접속하면,  
+  `123` 이나 `abc` 같은 값을 `coinId` 라는 파라미터로 받는다.
+
+```tsx
+<BrowserRouter>
+  <Routes>
+    <Route path="/" element={<Coins />} />
+    <Route path="/:coinId" element={<Coin />} />
+  </Routes>
+</BrowserRouter>
+```
+
+- 경로 파라미터를 사용하려면 `useParams` 라는 훅을 사용하면 된다.
+
+```tsx
+function Coin() {
+  const { coinId } = useParams<Params>();
+
+  ...
+}
+```
