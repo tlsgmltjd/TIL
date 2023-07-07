@@ -104,4 +104,4 @@
 
 ### Next js
 
-- [Next js](https://github.com/tlsgmltjd/TIL/blob/main/React/CustomHooks/Nextjs.md)
+- [Nextjs](https://github.com/tlsgmltjd/TIL/blob/main/Nextjs/Nextjs.md)
