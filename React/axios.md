@@ -43,3 +43,72 @@ axios
     console.error(error);
   });
 ```
+
+### POST
+
+```js
+axios.post(
+  url,
+  {
+    data,
+  },
+  { config }
+);
+```
+
+> ex
+
+```js
+const data = {
+  name: "John Doe",
+  email: "johndoe@example.com",
+};
+
+axios
+  .post("/api/users", data)
+  .then((response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+### DELETE
+
+```js
+axios.delete(url, { config });
+```
+
+```js
+axios
+  .delete("/api/users/123")
+  .then((response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+### PUT
+
+```js
+axios.put(url, data, { config });
+```
+
+```js
+const data = {
+  name: "Updated Name",
+  email: "updatedemail@example.com",
+};
+
+axios
+  .put("/api/users/123", data)
+  .then((response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
