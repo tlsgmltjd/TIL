@@ -106,4 +106,4 @@
 ### Next js
 
 - [Next.js](https://github.com/tlsgmltjd/TIL/blob/main/Nextjs/Nextjs.md)
-- [Routing](https://github.com/tlsgmltjd/TIL/blob/main/Nextjs/Nextjs.md)
+- [Routing](https://github.com/tlsgmltjd/TIL/blob/main/Nextjs/Routing.md)
