@@ -33,3 +33,25 @@ export default function Page() {
 
 - `fill` 을 사용했을 땐 부모 요소에서 `position: relative`와 같이 포지셔닝 해야한다.
   > fill을 사용할 경우 absolute 포지션으로 배치되기 때문
+
+---
+
+## `<Head />` 컴포넌트
+
+- `<Head />` 태그를 사용하여 html `head` 요소를 조작할 수 있다.
+
+```js
+import Head from "next/head";
+
+export default function myApp() {
+  return (
+    <>
+      <Head>
+        <title>myApp!</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      ...
+    </>
+  );
+}
+```
