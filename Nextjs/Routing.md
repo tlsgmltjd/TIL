@@ -16,6 +16,16 @@ pages
 
 - 파일이름이 곧 경로의 이름이다!
 
+> 파일안에 컴포넌트를 만들고 export default 하면 페이지가 생긴다!
+
+```js
+// pages/MainPage
+
+exprot default MainPage() {
+    return <>MainPage</>
+}
+```
+
 ### 첫번째 페이지
 
 - `index.js` : 첫번째 페이지 `/`
