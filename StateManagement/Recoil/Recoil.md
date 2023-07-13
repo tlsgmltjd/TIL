@@ -1,5 +1,7 @@
 ## Recoil ⌘
 
+ref : https://wit.nts-corp.com/2022/10/13/6586
+
 ```
 npm install recoil
 ```
@@ -10,10 +12,33 @@ npm install recoil
 
 ---
 
+## RecoilRoot
+
+- 컴포넌트에서 Recoil state를 사용하기 위해서는 recoil 상태를 사용하고자 하는 컴포넌트의 부모에 `RecoilRoot`를 선언해주어야한다.
+
+```js
+import { RecoilRoot } from "recoil";
+
+const App = () => {
+  return (
+    <RecoilRoot>
+      <Routers />
+    </RecoilRoot>
+  );
+};
+```
+
 ## Atoms
 
 - `Atoms`는 상태 단위이며, 업데이트와 참조가 가능하다.
 - atom이 업데이트되면 각각의 컴포넌트들은 리렌더링 된다!
+
+```js
+atom({ key: "", default: "" });
+```
+
+> key : atom을 식별하는데 사용하는 전역적으로 고유한 문자열  
+> default : atom의 초기값
 
 ```ts
 import { atom } from "recoil";
@@ -65,4 +90,38 @@ setUserName("Lee");
 
 console.log(userName);
 // Lee
+```
+
+## seletors
+
+- 전역 상태 값을 기반으로 어떤 계산을 통해 새로운 값을 내뱉는 순수함수이다.
+- atom이나 다른 selector를 통해 입력을 받을 수 있다.
+
+* `get` 매개변수를 이용하여 **atom이나 다른 selector를 참조할 수 있다.**
+
+```js
+export const countNextState = atom({
+  key: "count",
+  default: 0,
+});
+
+// selector
+export const countNextSeletor = selector({
+  key: "toDoSelector",
+  get: ({ get }) => {
+    const count = get(countNextState);
+
+    return count + 1;
+  },
+});
+```
+
+- `useRecoilValue()` hook을 사용해서 seletor의 값을 읽을 수 있다.
+
+```js
+const App = () => {
+  const nextCount = useRecoilValue(countNextSeletor);
+
+  return <div>next number is : {nextCount}</div>;
+};
 ```
