@@ -118,3 +118,16 @@ function Coin() {
   ...
 }
 ```
+
+### 중첩 라우팅
+
+- 서브 페이지처럼 Route 안에 Rouute를 작성할 수 있다.
+
+```js
+<Route path="/about" element={<About />}>
+  <Route path="shool" element={<Shool />} />
+  <Route path="club" element={<Club />} />
+</Route>
+```
+
+### Outlet
