@@ -97,7 +97,9 @@ console.log(userName);
 - 전역 상태 값을 기반으로 어떤 계산을 통해 새로운 값을 내뱉는 순수함수이다.
 - atom이나 다른 selector를 통해 입력을 받을 수 있다.
 
-* `get` 매개변수를 이용하여 **atom이나 다른 selector를 참조할 수 있다.**
+## get
+
+- `get` 매개변수를 이용하여 **atom이나 다른 selector를 참조할 수 있다.**
 
 ```js
 export const countNextState = atom({
@@ -123,5 +125,45 @@ const App = () => {
   const nextCount = useRecoilValue(countNextSeletor);
 
   return <div>next number is : {nextCount}</div>;
+};
+```
+
+## set
+
+- `set` 함수를 통해 selector는 **쓰기 가능한** RecoilState 객체를 반환 한다.
+
+- set 함수는 원하는 atom을 지정하여 수정할 수 있게 해준다.
+
+```js
+import { atom, selector } from "recoil";
+
+export const minutesState = atom({
+  key: "minutes",
+  default: 0,
+});
+
+export const hourSelector =
+  selector <
+  number >
+  {
+    key: "hours",
+    get: ({ get }) => {
+      const minutes = get(minutesState);
+      return minutes / 60;
+    },
+    set: ({ set }, newValue) => {
+      const minutes = +newValue * 60;
+      set(minutesState, minutes);
+    },
+  };
+```
+
+- 두번째 argument는 값에 적용시킬 새로운 값이다.
+
+```js
+const [hours, setHours] = useRecoilState(hourSelector);
+
+const onHoursChange = (event: React.FormEvent<HTMLInputElement>) => {
+  setHours(+event.currentTarget.value);
 };
 ```
