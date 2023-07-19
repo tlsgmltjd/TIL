@@ -1,6 +1,6 @@
 ## react-beautiful-dnd
 
-- Drag and Drop 구현
+- Drag and Drop 을 쉽게 구현할 수 있는 라이브러리이다! 💅
 
 ```js
 npm i react-beautiful-dnd
