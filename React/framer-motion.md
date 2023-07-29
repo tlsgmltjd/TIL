@@ -12,6 +12,8 @@ npm i framer-motion
 
 - `Framer-Motion`은 `motion`이라는 컴포넌트를 제공한다.
 
+- `motion` 컴포넌트에 props 를 통해서 애니메이션을 구현할 수 있다.
+
 ```js
 import { styled } from "styled-components";
 import { motion } from "framer-motion";
@@ -33,6 +35,28 @@ export default function App() {
         animate={{ scale: 1, rotateZ: 360 }}
       />
     </div>
+  );
+}
+```
+
+### Variants
+
+- `variants` 을 이용하여 애니메이션을 변수로 미리 저장하여 사용할 수 있다.
+
+```js
+const myVars = {
+  start: { scale: 0 },
+  end: { scale: 1, rotateZ: 360, transition: { type: "spring", delay: 0.5 } },
+};
+
+export default function App() {
+  return (
+    <>
+      <GlobalStyle />
+      <Wrapper>
+        <Box variants={myVars} initial="start" animate="end" />
+      </Wrapper>
+    </>
   );
 }
 ```
