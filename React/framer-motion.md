@@ -41,7 +41,7 @@ export default function App() {
 
 ### Variants
 
-- `variants` 을 이용하여 애니메이션을 변수로 미리 저장하여 사용할 수 있다.
+- `variants` 을 이용하여 애니메이션을 미리 저장하여 사용할 수 있다.
 
 ```js
 const myVars = {
