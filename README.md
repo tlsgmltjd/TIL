@@ -10,6 +10,8 @@
 
 ### Kotlin
 
+- [기본문법](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Kotlin/kotlin.md)
+
 ### Git
 
 - [터미널 기본 명령어](https://github.com/tlsgmltjd/TIL/blob/main/Git/terminal-command.md)
