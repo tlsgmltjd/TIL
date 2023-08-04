@@ -1,7 +1,8 @@
 ## useJinheonsRandom
 
+- NPM에 올릴게 진헌아 ㅎㅎ
+
 > useJinheonsRandom
-> s
 
 ```tsx
 const useJinheonsRandom = (jujak = 0.5) => {
