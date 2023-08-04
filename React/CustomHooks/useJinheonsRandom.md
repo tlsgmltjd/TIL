@@ -1,6 +1,7 @@
 ## useJinheonsRandom
 
 > useJinheonsRandom
+> s
 
 ```tsx
 const useJinheonsRandom = (jujak = 0.5) => {
