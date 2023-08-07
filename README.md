@@ -124,6 +124,7 @@
 - [Next.js](https://github.com/tlsgmltjd/TIL/blob/main/Nextjs/Nextjs.md)
 - [Routing](https://github.com/tlsgmltjd/TIL/blob/main/Nextjs/Routing.md)
 - [Image / Head](https://github.com/tlsgmltjd/TIL/blob/main/Nextjs/Image-Head.md)
+- [Pre-rendering](https://github.com/tlsgmltjd/TIL/blob/main/Nextjs/Pre-rendering.md)
 
 ---
 
