@@ -86,3 +86,28 @@ export default function Product({ product }) {
   return <>상품 이름: {product.name}</>;
 }
 ```
+
+---
+
+### 서버사이드 렌더링(Server-side Rendering)
+
+### `getServerSideProps()`
+
+Next.js 서버에 리퀘스트가 도착할 때마다 페이지를 렌더링해서 보내주는 방식이다.
+
+```js
+export async function getServerSideProps() {
+  const res = await axios("/products/");
+  const products = res.data;
+
+  return {
+    props: {
+      products,
+    },
+  };
+}
+
+export default function Home({ products }) {
+  return <ProductList products={products} />;
+}
+```
