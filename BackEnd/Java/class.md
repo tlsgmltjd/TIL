@@ -31,6 +31,54 @@
 - 클래스 내부에 선언된 함수를 메서드라고 한다.
 
 ```java
+package chap_01;
+
+class VendingMachine {
+
+    // field
+    // 생성자
+    // method
+
+    public String pushProductButton(int menuId) {
+        System.out.println(menuId + " 를 전달 받았습니다.");
+        return "콜라";
+    }
+
+}
+
+public class Asdf {
+
+    // static이 붙은 메소드는 클래스 메소드
+    // 인스턴스를 만들지 않고 사용이 가능하다.
+    // 인스턴스를 만들지 않아도 메모리에 올라가 있다.
+    public static void main(String[] args) {
+
+        // 인스턴스를 만드는 방법
+        // 1. new 연산자와 생성자를 이용
+        // 2. 클래스 로더를 이용
+        // 3. 메모리에 있는 인스턴스를 복제
+
+        // 인스턴스를 만들 때마다 메모리에 인스턴스가 생성된다.
+        // 그러기 때문에 필요한 개수 만큼 생성해야 한다.
+        // 메모리 관리 중요
+
+        // 객체가 어떤 행동을 하는 이유일한 이유는 이 객체의 메소드를 다른 객체가 호출했을 때이다.
+
+        VendingMachine vm1 = new VendingMachine();
+        VendingMachine vm2 = new VendingMachine();
+
+        String product = vm1.pushProductButton(100);
+
+        System.out.println(product);
+
+
+
+    }
+}
+
+```
+
+```java
 public class Student {
 
     // 필드(속성)
