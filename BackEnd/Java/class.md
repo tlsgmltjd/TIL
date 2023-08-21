@@ -30,6 +30,11 @@
 
 - 클래스 내부에 선언된 함수를 메서드라고 한다.
 
+#### UML 표기법
+
+> getOne() :int  
+> printNumber(int) :void
+
 ```java
 package chap_01;
 
