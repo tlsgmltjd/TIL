@@ -14,7 +14,7 @@
 
 - API specification (명세)
 
-### 덧셈 API
+### GET API
 
 - HTTP Method -> GET
 - HTTP Path -> /add
@@ -50,3 +50,29 @@ public class CalCulatorController {
 ```
 
 > 같은 이름을 가진 쿼리의 값이 들어온다.
+
+### POST API
+
+- HTTP Method -> POST
+- HTTP Path -> /multiply
+- HTTP Body (JSON)
+
+```
+  {
+  "number1": 숫자,
+  "number2": 숫자
+  }
+```
+
+- API 응답 -> 숫자 (곱셈 결과)
+
+```java
+ @PostMapping("/multiply") // HTTP Method : POST /multiply
+    public int multiplyTwoNumbers(@RequestBody CalculatorMultiplyRequest request) {
+        return request.getNumber1() * request.getNumber2();
+    }
+```
+
+`@RequestBody`
+
+- HTTP Body로 들어오는 JSON을 주어진 객체로 변경해준다.
