@@ -72,3 +72,44 @@ char cc3 = '\u0041';
 boolean bool1 = true;
 boolean bool2 = false;
 ```
+
+### 문자열 자료형
+
+- `String`
+
+```java
+// 리터럴 방식
+String s1 = "안녕";
+
+// 클래스 인스턴스 방식
+String s1 = new String("안녀영");
+```
+
+```java
+String h1 = "hello";
+String h2 = "hello";
+
+boolean b1 = h1 == h2; // true
+
+String s1 = new String("h1");
+String s2 = new String("h1");
+
+// 인스턴스와 비교하려면 .equals 메소드를 사용해야함
+boolean b2 = s1 == s2; // false
+
+boolean b3 = s1.equals(s2); // true
+```
+
+```java
+// 다른 자료형으로부터 문자열로 변환
+String str1 = String.valueOf(true); // "true"
+String str3 = String.valueOf(123); // "123"
+String str4 = String.valueOf(3.14f); // "3.14"
+String str5 = String.valueOf('가'); // "가"
+
+String str5 = true + ""; // "true"
+
+// 문자열을 다른 자료형으오 변환
+int intNum = Integer.parseInt(str3);
+long longNum = Long.parseLog(str3);
+```
