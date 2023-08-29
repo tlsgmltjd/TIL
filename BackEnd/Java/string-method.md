@@ -136,3 +136,78 @@ String s1 = "Hello, World!";
 String up1 = s1.toUpperCase();
 String dn1 = s1.toLowerCase();
 ```
+
+- 이어붙이기
+  > .concat()
+
+```java
+//  💡 concat : 문자열을 뒤로 이어붙임
+String s1 = "A";
+String s2 = "B";
+String s3 = "C";
+
+String s4 = s1.concat(s2).concat(s3);
+```
+
+- 반복하기
+
+```java
+String s1 = "히히";
+
+// 💡 repeat : 문자열을 주어진 정수만큼 반복
+String s2 = s1.repeat(2); // "히히 히히"
+
+String s3 = s1
+.concat(" ")
+.repeat(3)
+.trim(); // "히히 히히 히히"
+```
+
+- 잘라오기
+  > .substring(int, int)
+
+```java
+//  💡 substring : ~번째 문자부터 (~번째 문자까지) 잘라서 반환
+
+String s1 = "이진헌 로보틱스 금메달 레츠고";
+
+String p1 = "로보틱스";
+String p2 = "금메달";
+
+String res = s1.substring(
+    s1.indexOf(p1),
+    p2.length() + s1.indexOf(p2)
+);
+```
+
+- 치환
+  > .replace(String, String)
+
+```java
+//  💡 replace : 주어진 앞의 문자(열)을 뒤의 문자(열)로 치환
+String s1 = "로봇 진헌이가 로봇을 전공하다니 믿을 수 없어";
+String s2 = s1.replace("로봇", "프론트엔드");
+
+
+String str_e1 = "02=123.4567_8900";
+
+//  💡 replaceAll / replaceFirst : ⭐️ 정규표현식 사용 가능
+//  전부 치환 / 첫 번째 일치부분만 치환
+String str_e2 = str_e1
+    .replaceAll("[=._]", "-")
+    .replaceFirst("[-@#]", ")");
+```
+
+- 배열 변환
+
+> toCharArray()  
+> split()
+
+```java
+String s1 = "가-나-다-라-마";
+//  💡 toCharArray : 문자열을 분할하여 문자열의 배열로 반환
+char[] c1 = s1.toCharArray();
+
+//  💡 split : 주어진 기준으로 (~개까지) 분할하여 문자열 배열로 반환
+String[] s2 = s1.split("-");
+```
