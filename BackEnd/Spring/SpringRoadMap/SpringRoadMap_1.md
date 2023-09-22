@@ -10,11 +10,15 @@
 
 일반적인 웹 애플리케이션 계층 구조
 
+![](https://interesting-jackrabbit-80c.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F3ad1f604-bb8b-4a0c-8d3a-aab5c473bf7d%2F7d5c32f6-780a-4160-bee8-609619eed69f%2F%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2023-09-18_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_6.16.53.png?table=block&id=7d21aad8-8272-4aa3-ae68-6211964a52b2&spaceId=3ad1f604-bb8b-4a0c-8d3a-aab5c473bf7d&width=1800&userId=&cache=v2)
+
 - **컨트롤러** : 웹 MVC의 컨트롤러 역할
 - **서비스** : 핵심 비즈니스 로직 구현
 - **리포지토리** : 데이터베이스에 접근, 도메인 객체를 DB에 저장하고 관리
 - **도메인** : 비즈니스 도메인 객체
   - 회원, 주문, 쿠폰 등등 주로 데이터베이스에 저장하고 관리됨
+
+![](https://interesting-jackrabbit-80c.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F3ad1f604-bb8b-4a0c-8d3a-aab5c473bf7d%2Ff0315498-a498-45fd-8751-eae7f8a2f51d%2F%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2023-09-18_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_6.19.33.png?table=block&id=6837810d-4982-4705-b14d-c71a79b25a5b&spaceId=3ad1f604-bb8b-4a0c-8d3a-aab5c473bf7d&width=1800&userId=&cache=v2)
 
 ```
 MemberService -> MemberRepository(interface) <- - MemoryMemberRepository
@@ -224,4 +228,222 @@ public class MemberService {
 
 
 }
+```
+
+- 회원 서비스 코드를 DI를 가능하게 변경한다.
+
+```java
+private final MemberRepository memberRepository;
+
+public MemberService(MemberRepository memberRepository) {
+    this.memberRepository = memberRepository;
+}
+```
+
+**회원 서비스 테스트 코드**
+
+- `@BeforeEach` : 각 테스트 실행 전에 호출된다. 테스트가 서로 영향이 없도록 항상 새로운 객체를 생성하고, 의존관계도 새로 맺어주는 역할을 한다.
+
+```java
+...
+
+    MemberService memberService;
+    MemoryMemberRepository memberRepository;
+
+    @BeforeEach
+    public void beforeEach() {
+        memberRepository = new MemoryMemberRepository();
+        memberService = new MemberService(memberRepository);
+    }
+
+    @AfterEach
+    public void afterEach() {
+        memberRepository.clearStore();
+    }
+
+    @Test
+    void 회원가입() {
+        // given <- 이러한 상황이 주어져서
+        Member member = new Member();
+        member.setName("hello");
+
+        // when <- 이걸 실행 했을 떄
+        Long saveId = memberService.join(member);
+
+        // then <- 이게 나와야해
+        Member findMember = memberService.findOne(saveId).get();
+        Assertions.assertThat(findMember.getName()).isEqualTo(member.getName());
+    }
+
+...
+```
+
+**회원 컨트롤러에 의존관계 추가**
+
+```java
+@Controller
+public class MemberController {
+    private final MemberService memberService;
+
+    @Autowired
+    public MemberController(MemberService memberService) {
+        this.memberService = memberService;
+    }
+}
+```
+
+- 생성자에 `@Autowired` 가 있으면 스프링이 연관된 객체를 스프링 컨테이너에서 찾아서 넣어준다. DI
+
+- 다음 어노테이션은 스프링 빈으로 자동 등록해준다.
+- @Conponent
+- @Controller
+- @Service
+- @Repository
+
+**DI를 할 수 있도록 MemberService, MemoryMemeberRepository 를 스프링 빈으로 등록해준다.**
+
+```java
+@Controller
+public class MemberController {
+    private final MemberService memberService;
+
+    @Autowired
+    public MemberController(MemberService memberService) {
+        this.memberService = memberService;
+    }
+}
+```
+
+```java
+@Service
+public class MemberService {
+    private final MemberRepository memberRepository;
+
+    public MemberService(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
+
+...
+}
+```
+
+```java
+@Repository
+public class MemoryMemberRepository implements MemberRepository{ ... }
+```
+
+**직접 스프링 빈에 등록하는법**
+
+```java
+// 직접 스프링 빈에 등록
+@Configuration
+public class SpringConfig {
+
+    @Bean
+    public MemberService memberService() {
+        return new MemberService(memberRepository());
+    }
+
+    @Bean
+    public MemberRepository memberRepository() {
+        return new MemoryMemberRepository();
+    }
+}
+```
+
+> DI 방법 : **생성자 주입(권장), setter 주입, 필드 주입**
+
+**MVC**
+
+![](https://interesting-jackrabbit-80c.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F3ad1f604-bb8b-4a0c-8d3a-aab5c473bf7d%2Ff7b65b5a-eeae-4505-a681-1f62d5880716%2F%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2023-09-21_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_11.07.23.png?table=block&id=06b0e076-8751-410a-adbf-21b3e6906cb3&spaceId=3ad1f604-bb8b-4a0c-8d3a-aab5c473bf7d&width=1800&userId=&cache=v2)
+
+- (@Controller) 요청이 오면 스프링 컨트롤러가 있는지 확인 후 static 파일을 찾는다.
+
+```java
+@Controller
+public class HomeController {
+    @GetMapping("/")
+    public String home() {
+        return "home";
+    }
+}
+
+// resourse/templates/home.html
+```
+
+```java
+public class MemberController {
+    private final MemberService memberService;
+
+    @Autowired
+    public MemberController(MemberService memberService) {
+        this.memberService = memberService;
+    }
+
+    @GetMapping("/members/new")
+    public String createForm() {
+        return "members/createMemberForm";
+    }
+    @PostMapping("/members/new")
+    public String create(MemberForm form) {
+        Member member = new Member();
+        member.setName(form.getName());
+        memberService.join(member);
+        return "redirect:/";
+    }
+}
+```
+
+```java
+public class MemberForm {
+    private String name;
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+}
+```
+
+- `/` -회원등록→ `members/new` -폼 데이터 입력→ `members/new` POST요청 (body = name: string) → Member 객체 생성 → 데이터 추가 → MemberService.join() 메서드로 Member 객체 저장
+
+```java
+@GetMapping("/members")
+    public String list(Model model) {
+        List<Member> members = memberService.findMembers();
+        model.addAttribute("members", members);
+        return "members/memberList";
+    }
+```
+
+**회원 조회 기능**
+
+```html
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <body>
+    <div class="container">
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>이름</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr th:each="member : ${members}">
+              <td th:text="${member.id}"></td>
+              <td th:text="${member.name}"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- /container -->
+  </body>
+</html>
 ```
