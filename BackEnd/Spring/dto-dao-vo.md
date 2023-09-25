@@ -8,6 +8,9 @@
 - Service와 DB를 연결한다.
 - Repository package가 DAO이다.
 
+* repository와 dao는 비슷한 개념이다.
+  - repository는 Entity 객체를 보관하고 관리하는 저장소, dao는 데이터에 접근하도록 DB접근 관련 로직을 모아둔 객체이다.
+
 > UserDao 인터페이스
 
 ```java
