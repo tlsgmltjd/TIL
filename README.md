@@ -36,6 +36,8 @@
 - [static fields, methods](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Java/static-fields-method.md)
 - [abstract class](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Java/abstract-class.md)
 - [interface](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Java/interface.md)
+- [inner class](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Java/inner-class.md)
+- [anonymous class](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Java/anonymous-class.md)
 
 ### Spring
 
