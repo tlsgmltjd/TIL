@@ -48,7 +48,7 @@
 * **[SpringRoadMap_1](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Spring/SpringRoadMap/SpringRoadMap_1.md)**
 
 - **[스프링부트 요청과 응답](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Spring/SpringBook/%EC%8A%A4%ED%94%84%EB%A7%81%EC%9A%94%EC%B2%AD%EA%B3%BC%EC%9D%91%EB%8B%B5.md)**
-- **[스프링부트 테스트코드](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Spring/SpringBook/%EC%8A%A4%ED%94%84%EB%A7%81%EC%9A%94%EC%B2%AD%EA%B3%BC%EC%9D%91%EB%8B%B5.md)**
+- **[스프링부트 테스트코드](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Spring/SpringBook/%EC%8A%A4%ED%94%84%EB%A7%81%EB%B6%80%ED%8A%B8%ED%85%8C%EC%8A%A4%ED%8A%B8%EC%BD%94%EB%93%9C.md)**
 
 ### Node.js
 
