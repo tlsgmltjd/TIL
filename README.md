@@ -40,6 +40,7 @@
 - [anonymous class](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Java/anonymous-class.md)
 - [java.util](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Java/java.util/java.util.md)
   - [collection-framework](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Java/java.util/collection-framework.md)
+  - [generic](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Java/java.util/generic.md)
 
 ### Spring
 
