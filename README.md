@@ -34,6 +34,7 @@
 - [OOP](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Java/OOP.md)
 - [class](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Java/class.md)
 - [static fields, methods](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Java/static-fields-method.md)
+- [getter, setter, constructor, builder](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Java/getter-setter-constructor-builder.md)
 - [abstract class](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Java/abstract-class.md)
 - [interface](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Java/interface.md)
 - [inner class](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Java/inner-class.md)
