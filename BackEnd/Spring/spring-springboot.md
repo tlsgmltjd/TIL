@@ -1,6 +1,6 @@
 ## 스프링과 스프링 부트 개념의 차이
 
-## 스프링 프레임워크란
+## 스프링부트 프레임워크란
 
 - 자바 애플리케이션 개발을 지원하는 오픈소스 프레임워크이다.
 - 스프링의 주요 특징에는 아래와 같은 것이 있다.
@@ -59,3 +59,20 @@
 - 내장 WAS
   - 스프링은 일반적으로 톰캣과 같은 WAS에서 구동된다.
   - 스프링 부트는 WAS를 자체적으로 가지고 있으며 jar 파일만 있다면 별도의 WAS설정 없이 애플리케이션을 배포할 수 있다.
+
+---
+
+## Spring과 Spring Boot
+
+### 역사...
+
+- 2002 | JavaEE 디자인 패턴 책 발간(Rod Johnson), 스프링 없이 JavaEE로 서버를 개발했다 (추운 겨울)
+- 2004 | Spring 1.0
+- 2006 | Spring 2.0 XML 설정 간편, Java5 지원
+- 2009 | Spring 3.0 Annotation 기반 설정확대, Java6 지원
+- 2013 | Spring 4.0 Bean 정의를 위해 groovy DSL 활용, 웹소켓, Java8 지원
+- **2014 | Spring Boot 1.0**
+- 2017 | String 5.0 Reactive Programming 추가, Java9 지원
+- **2017 | Spring Boot 2.0**
+- 2022 | Spring 6.0
+- **2022 | Spring Boot 3.0**
