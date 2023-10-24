@@ -655,3 +655,113 @@ MemberService -> <interface>MemberRepository <- JdbcMemberRepository
   - 추상화를 의미한다.
 - DI를 사용하여 기존 코드를 변경하지 않고 구현체를 변경하였다.
 - 다형성이 구현된다!
+
+### 통합 테스트 구현
+
+- 스프링 컨테이너와 디비까지 연결하는 통합테스트
+- 아무래도 통합 테스트보다 단위 테스트가 더 호율적이고 좋다.
+
+```java
+@SpringBootTest // 스프링 컨테이니와 함께 테스트를 진행
+// 테스트 케이스에 Transactional 어노테이션이 있으면 테스트 시작 전에 트랜잭션 시작
+// 테스트 완료 후에 항상 롤백한다. (디비에 데이터가 안남아서 다음 테스트에 영향을 주지 않을 수 있다.)
+@Transactional
+class MemberServiceIntegrationTest {
+    @Autowired
+    MemberService memberService;
+    @Autowired
+    MemberRepository memberRepository;
+
+    @Test
+    void 회원가입() {
+        // given <- 이러한 상황이 주어져서
+        Member member = new Member();
+        member.setName("hello");
+
+        // when <- 이걸 실행 했을 떄
+        Long saveId = memberService.join(member);
+
+        // then <- 이게 나와야해
+        Member findMember = memberService.findOne(saveId).get();
+        Assertions.assertThat(findMember.getName()).isEqualTo(member.getName());
+    }
+
+    @Test
+    void 중복회원예외() {
+        // given
+        Member member1 = new Member();
+        member1.setName("spring");
+
+        Member member2 = new Member();
+        member2.setName("spring");
+
+        // when
+        memberService.join(member1);
+        IllegalStateException e = assertThrows(IllegalStateException.class, () -> memberService.join(member2));
+
+        Assertions.assertThat(e.getMessage()).isEqualTo("이미 존재하는 회원입니다.");
+    }
+}
+```
+
+## 스프링 JdbcTemplate
+
+- JdbcTemplate은 JDBC의 반복되는 코드를 제거해준다.
+
+```java
+public class JdbcTemplateMemberRepository implements MemberRepository {
+
+    private final JdbcTemplate jdbcTemplate;
+
+    public JdbcTemplateMemberRepository(DataSource datasource) {
+        this.jdbcTemplate = new JdbcTemplate(datasource);
+    }
+
+    @Override
+    public Member save(Member member) {
+        SimpleJdbcInsert jdbcInsert = new SimpleJdbcInsert(jdbcTemplate);
+        jdbcInsert.withTableName("member").usingGeneratedKeyColumns("id");
+
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("name", member.getName());
+        Number key = jdbcInsert.executeAndReturnKey(new MapSqlParameterSource(parameters));
+        member.setId(key.longValue());
+        return member;
+    }
+
+    @Override
+    public Optional<Member> findById(Long id) {
+        List<Member> res = jdbcTemplate.query("select * from member where id = ?", memberRowMapper(), id);
+        return res.stream().findAny();
+    }
+
+    @Override
+    public Optional<Member> findByName(String name) {List<Member> res = jdbcTemplate.query("select * from member where name = ?", memberRowMapper(), name);
+        return res.stream().findAny();
+    }
+
+    @Override
+    public List<Member> findAll() {
+        return jdbcTemplate.query("select * from member", memberRowMapper());
+    }
+
+    private RowMapper<Member> memberRowMapper() {
+        return (rs, rowNum) -> {
+            Member member = new Member();
+            member.setId(rs.getLong("id"));
+            member.setName(rs.getString("name"));
+            return member;
+        };
+    }
+}
+```
+
+```java
+
+      @Bean
+      public MemberRepository memberRepository() {
+        return new JdbcTemplateMemberRepository(dataSource);
+      }
+```
+
+- 이렇게 만든 JdbcTemplateMemberRepository를 빈으로 등록시키면 앞서 사용해봤듯이 기존의 코드 변경 없이 바로 사용이 가능하다.
