@@ -879,3 +879,49 @@ public MemberRepository memberRepository() {
 ```
 
 - 이렇게 빈으로 등록하고 EntityManager 까지 주입해주면 서비스 코드 변경 없이 사용할 수 있다~
+
+## 스프링 데이터 JPA
+
+- Spring Data Jpa를 사용하면 기존의 Jpa로 개발하던 코드의 반복되는 부분까지도 확 줄여버린다.
+- 무려 구현코드 없이 인터페이스로만 개발을 할 수 있다.
+- 기본적인 CRUD 기능까지 제공한다.
+
+#### SpringDataJpa는 Jpa를 편리하게 사용하도록 도와주는 기술이다.
+
+> Jpa도 잘 알아야함
+
+```java
+public interface SpringDataJpaMemberRepository extends JpaRepository<Member, Long>, MemberRepository {
+    @Override
+    Optional<Member> findByName(String name);
+}
+```
+
+- 이렇게 하면 기본적인 CRUD 지원 + 메서드 네이밍으로 구현코드 한 줄 없이 데이터 접근이 가능해졌다!
+
+```java
+private final MemberRepository memberRepository;
+
+    public SpringConfig(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
+
+    @Bean
+    public MemberService memberService() {
+        return new MemberService(memberRepository);
+    }
+```
+
+- 스프링 데이터 JPA가 `SpringDataJpaMemberRepository` 이걸 자동으로 스프링 빈에 등록해줌
+
+```
+JpaRepository -> PagingAndSortingRepository -> CridRepository -> Repository
+```
+
+- 인터페이스를 이용한 기본적인 CRUD 제공
+- `findByUsername` 같이 직접 메서드 네이밍으로 SQL 쿼리 기능 제공
+- 페이징 기능 제공
+
+> 복잡한 동적 쿼리는 QueryDSL이라는 라이브러리로 해결 할 수 있다.
+
+---
