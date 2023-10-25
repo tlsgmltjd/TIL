@@ -765,3 +765,117 @@ public class JdbcTemplateMemberRepository implements MemberRepository {
 ```
 
 - 이렇게 만든 JdbcTemplateMemberRepository를 빈으로 등록시키면 앞서 사용해봤듯이 기존의 코드 변경 없이 바로 사용이 가능하다.
+
+## 스프링 JPA
+
+- JPA 는 기존의 반복코드와 기본적인 SQL 쿼리를 직접 만들어서 실행해준다.
+- JPA 를 사용하면 객체와 RDB를 매핑시킬 수 있으면 데이터 중심에서 객체 중심의 설계로 패러다임 전환이 가능하다
+- 자바 ORM 표준이 되는 인터페이스 이다.
+
+```gradle
+implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+```
+
+```properties
+spring.jpa.show-sql=true
+spring.jpa.hibernate.ddl-auto=none
+```
+
+- show-sql : JPA가 생성하여 사용하는 SQL 문을 출력한다.
+- ddl-auto : 테이블을 자동으로 생성하거나 수정해주는 기능
+  - `create` / `create-drop` / `updata` / `validate` / `none`
+
+> JPA 엔티티 - 테이블 매핑
+
+```java
+
+@Entity
+public class Member {
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String name;
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+}
+```
+
+> JpaMemberRepository
+
+- EntityManager을 주입받아 사용한다.
+
+```java
+
+public class JpaMemberRepository implements MemberRepository {
+
+    private final EntityManager em;
+
+    public JpaMemberRepository(EntityManager em) {
+        this.em = em;
+    }
+
+    @Override
+    public Member save(Member member) {
+        em.persist(member);
+        return member;
+    }
+
+    @Override
+    public Optional<Member> findById(Long id) {
+        Member member =  em.find(Member.class, id);
+        return Optional.ofNullable(member);
+    }
+
+    @Override
+    public Optional<Member> findByName(String name) {
+        List<Member> res =  em.createQuery("select m from Member m where m.name = :name", Member.class)
+                .setParameter("name", name)
+                .getResultList();
+        return res.stream().findAny();
+    }
+
+    @Override
+    public List<Member> findAll() {
+        return em.createQuery("select m from Member m", Member.class)
+                .getResultList();
+    }
+}
+```
+
+#### JPA를 사용한다면 @Transctional 어노테이션이 필요하다
+
+JPA를 이용한 모든 데이터 번경은 트렌잭션 안에서 일어나야한다.
+
+```java
+...
+
+@PersistenceContext
+private final EntityManager em;
+
+
+
+public SpringConfig(EntityManager em) {
+    this.em = em;
+}
+@Bean
+public MemberRepository memberRepository() {
+    return new JpaMemberRepository(em);
+}
+
+...
+```
+
+- 이렇게 빈으로 등록하고 EntityManager 까지 주입해주면 서비스 코드 변경 없이 사용할 수 있다~
