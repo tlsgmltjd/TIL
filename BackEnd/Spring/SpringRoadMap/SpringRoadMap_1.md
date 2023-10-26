@@ -925,3 +925,77 @@ JpaRepository -> PagingAndSortingRepository -> CridRepository -> Repository
 > 복잡한 동적 쿼리는 QueryDSL이라는 라이브러리로 해결 할 수 있다.
 
 ---
+
+## AOP
+
+> Aspect Oriented Programming
+
+공통 관심 사항과 핵심 관심 사항을 분리하는 것이다.
+
+### [예시상황] 모든 메서드에 호출 시간을 측정해야한다면??
+
+```java
+public Long join(Member member) {
+        long start = System.currentTimeMillis();
+        try {
+        validateDuplicateMember(member);
+            memberRepository.save(member);
+            return member.getId();
+        } finally {
+            long finish = System.currentTimeMillis();
+            long timeMs = finish - start;
+            System.out.println("join " + timeMs + "ms");
+} }
+```
+
+- 이러한 시간 측정 로직을 모든 메서드에 일일히 다 넣어야한다...
+
+**시간 측정 로직은 핵심 관심 사항이 아니다.**
+공통 관심 사항이다.
+
+이러한 코드가 핵심 비즈니스 로직에 섞여서 유지보수가 매우 어렵다.  
+하지만 이런 시간 측정 로직을 공통 로직으로 빼서 모듈화 시키기 매우 어렵다.
+
+### AOP 적용
+
+```java
+@Component
+@Aspect
+public class TimeTraceAop {
+
+    @Around("execution(* hello.hellospring..*(..))")
+    public Object execute(ProceedingJoinPoint joinPoint) throws Throwable {
+
+        long start = System.currentTimeMillis();
+        System.out.println("START: " + joinPoint.toString());
+
+        try {
+            return joinPoint.proceed();
+        } finally {
+            long finish = System.currentTimeMillis();
+            long timeMs = finish - start;
+            System.out.println("END: " + joinPoint.toString()+ " " + timeMs + "ms");
+        }
+    }
+}
+```
+
+AOP의 공통 로직을 등록할 클래스에 `@Aspect` 를 붙혀준다.
+
+`@Around` 어노테이션으로 해당 공통 로직이 적용될 범위를 지정.
+
+핵심 관심 사항을 깔끔하게 유지할 수 있다.
+
+<br />
+
+#### AOP 적용 전 의존관계
+
+```
+memberController -> memberService
+```
+
+#### AOP 적용 후 의존관계
+
+```
+memberController -> 프록시 memberService - (joinPoint.proceed()) -> memberService
+```
