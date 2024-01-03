@@ -257,6 +257,12 @@ N+1 문제는 1은 최소 쿼리, N은 최소 쿼리의 결과 개수이다. 최
 예를 들어 Member와 1:N 관계인 Team 엔티티들이 있다고 가정을 하고, 10명의 Member 불러오는 JPQL 쿼리를 날린다면  
 Member 10명을 조회하는 쿼리 1개와 각각 Team을 조회하는 쿼리가 10개가 날라간다..
 
+**특히 `@XToOne` 매핑은 기본 설정이 즉시로딩(EAGER) 이므로 꼭 지연로딩으로 설정하자**
+
+```java
+@ManyToOne(fetch = LAZY)
+```
+
 ---
 
 ## 요구사항 분석
@@ -370,3 +376,394 @@ MemberRepository 를 주업하는 것처럼 DI를 할땐 생성자 주압하는 
 왜냐하면 생성 시점에 뭘 의존하고 있는지 표현할 수 있다.
 
 `@Transactional` 어노테이션은 스프링에서 제공하는 어노테이션을 사용하는 것이 좋다. (쓸 수 있는 옵션이 많다.)
+
+## 상품
+
+### 상품 Entity
+
+```java
+@Entity
+@Data
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "dtype")
+public abstract class Item {
+    @Id @GeneratedValue
+    @Column(name = "item_id")
+    private Long id;
+
+    private String name;
+
+    private Integer price;
+
+    private Integer stockQuantity;
+
+    @ManyToMany(mappedBy = "items")
+    private List<Category> categories = new ArrayList<>();
+
+    // == 비즈니스 로직 == //
+
+    /**
+     * stock 증가
+     * */
+    public void addStock(int quantity) {
+        this.stockQuantity += quantity;
+    }
+
+    /**
+     * stock 감소
+     * */
+    public void removeStock(int quantity) {
+        int restStock = this.stockQuantity - quantity;
+        if (restStock < 0) {
+            throw new NotEnoughStockException("need more stock");
+        }
+        this.stockQuantity = restStock;
+    }
+}
+```
+
+**도메인 모델 페턴**으로 엔티티가 해결할 수 있는 작업은 엔티티에 넣는 것이 좋다.
+
+객체지향적이며 데이터를 가지고 있는 클래스에서 비즈니스 로직을 가져가는게 응집도가 높다!
+
+- addStock : 재고가 늘어나거나, 주문을 취소하여 재고를 다시 돌려놓을 때 사용된다.
+- removeStock : 주문을 했을 때 상품의 재고를 줄인다. 만약 재고가 부족하면 에러 발생
+
+### 상품 Repository
+
+```java
+@Repository
+public class ItemRepository {
+
+    @PersistenceContext
+    private EntityManager em;
+
+    public void save(Item item) {
+        if (item.getId() == null) {
+            em.persist(item);
+        } else {
+            em.merge(item);
+        }
+    }
+
+    public Item findById(Long id) {
+        return em.find(Item.class, id);
+    }
+
+    public List<Item> findAll() {
+        return em.createQuery("SELECT I FROM Item I", Item.class)
+                .getResultList();
+    }
+}
+```
+
+save 메서드에서 item을 파라미터로 받아 PK가 없으면 persist(), 있다면 데이터베이스에서 한번 저장되었다 나온 객체로 보고 merge()를 실행한다.
+
+## 주문
+
+### 주문 Entity
+
+```java
+@Entity
+@Table(name = "orders")
+@Data
+@NoArgsConstructor(access = PROTECTED)
+public class Order {
+    @Id @GeneratedValue
+    @Column(name = "order_id")
+    private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "member_id")
+    private Member member;
+
+    @OneToMany(mappedBy = "order", cascade = ALL)
+    private List<OrderItem> orderItems = new ArrayList<>();
+
+    @OneToOne(fetch = LAZY, cascade = ALL)
+    @JoinColumn(name = "delivery_id")
+    private Delivery delivery;
+
+    private LocalDateTime orderDate;
+
+    @Enumerated(EnumType.STRING)
+    private OrderStatus status;
+
+    // ====== 연관관계 편의 메서드 ======
+    public void setMember(Member member) {
+        this.member = member;
+        member.getOrders().add(this);
+    }
+
+    public void setOrderItem(OrderItem orderItem) {
+        orderItems.add(orderItem);
+        orderItem.setOrder(this);
+    }
+
+    public void setDelivery(Delivery delivery) {
+        this.delivery = delivery;
+        delivery.setOrder(this);
+    }
+
+    // == 생성 메서드 == //
+    public static Order createOrder(Member member, Delivery delivery, OrderItem... orderItems) {
+        Order order = new Order();
+        order.setMember(member);
+        order.setDelivery(delivery);
+        for (OrderItem orderItem : orderItems) {
+            order.setOrderItem(orderItem);
+        }
+        order.setStatus(OrderStatus.ORDER);
+        order.setOrderDate(LocalDateTime.now());
+        return order;
+    }
+
+    // == 비즈니스 로직 == //
+    /*
+    * 주문 취소
+    * */
+    public void cancel() {
+        if (delivery.getStatus() == DeliveryStatus.COMP) {
+            throw new IllegalStateException("이미 배송 완료된 상품은 취소가 불가능합니다.");
+        }
+
+        this.setStatus(OrderStatus.CANCEL);
+        for (OrderItem orderItem : this.orderItems) {
+            orderItem.cancel();
+        }
+    }
+
+    // == 조회 로직 == //
+    /*
+    * 전체 주문 가격 조회
+    * */
+    public int getTotalPrice() {
+        int totalPrice = 0;
+        for (OrderItem orderItem : orderItems) {
+            totalPrice += orderItem.getTotalPrice();
+        }
+        return totalPrice;
+    }
+}
+```
+
+핵심적으로 컨트롤하는 엔티티에 **연관관계 편의 메서드**를 두어 연관관계를 설정하고 양방향 연관관계를 한번에 설정할 수 있다.
+
+`@NoArgsConstructor(access = PROTECTED)` 이렇게 생성자에 제약을 걸어 기대하지 않는 방식으로 엔티티를 생성하는 것을 막고있다.
+
+- createOrder 메서드는 주문에 필요한 데이터를 파라미터로 받아서 실제 주문 엔티티를 생성할 때 사용된다.
+
+### 주문 상품 Entity
+
+```java
+@Entity
+@Data
+@NoArgsConstructor(access = PROTECTED)
+public class OrderItem {
+    @Id @GeneratedValue
+    @Column(name = "order_item_id")
+    private Long id;
+
+    @ManyToOne(fetch = LAZY)
+    @JoinColumn(name = "item_id")
+    private Item item;
+
+    @ManyToOne(fetch = LAZY)
+    @JoinColumn(name = "order_id")
+    private Order order;
+
+    private Integer orderPrice;
+
+    private Integer count;
+
+    // == 생성 메서드 == //
+    public static OrderItem createOrderItem(Item item, int orderPrice, int count) {
+        OrderItem orderItem = new OrderItem();
+        orderItem.setItem(item);
+        orderItem.setOrderPrice(orderPrice);
+        orderItem.setCount(count);
+
+        item.removeStock(count);
+        return orderItem;
+    }
+
+    // == 비즈니스 로직 == //
+    public void cancel() {
+        getItem().addStock(count);
+    }
+
+    /*
+    * 주문 상품 전체 가격 조회
+    * */
+    public int getTotalPrice() {
+        return getOrderPrice() * getCount();
+    }
+}
+```
+
+- createOrderItem 메서드는 파라미터로 데이터를 받아 엔티티를 생성한다.
+
+### 주문 Repository
+
+```java
+@Repository
+public class OrderRepository {
+
+    @PersistenceContext
+    private EntityManager em;
+
+    public void save(Order order) {
+        em.persist(order);
+    }
+
+    public Order findById(Long id) {
+        return em.find(Order.class, id);
+    }
+
+    public List<Order> findAllByString(OrderSearch orderSearch) {
+        // ...
+    }
+}
+```
+
+## 주문 Service
+
+```java
+@Service
+@RequiredArgsConstructor
+@Transactional(readOnly = true)
+public class OrderService {
+
+    private final OrderRepository orderRepository;
+    private final MemberRepository memberRepository;
+    private final ItemRepository itemRepository;
+
+    /**
+     * 주문
+     */
+    @Transactional
+    public Long order(Long memberId, Long itemId, int count) {
+
+        // 엔티티 조회
+        Member member = memberRepository.findById(memberId);
+        Item item = itemRepository.findById(itemId);
+
+        // 배송정보 생성
+        Delivery delivery = new Delivery();
+        delivery.setAddress(member.getAddress());
+
+        // 주문상품 생성
+        OrderItem orderItem = OrderItem.createOrderItem(item, item.getPrice(), count);
+
+        // 주문 생성
+        Order order = Order.createOrder(member, delivery, orderItem);
+
+        // 주문 저장
+        orderRepository.save(order);
+        return order.getId();
+    }
+
+    /**
+     * 취소
+     */
+    @Transactional
+    public void cancelOrder(Long id) {
+        // 주문 엔티티 조회
+        Order order = orderRepository.findById(id);
+
+        // 주문 취소
+        order.cancel();
+
+        // 영속성 컨텍스트 안에서 엔티티 안에서 데이터 변경이 일어나면
+        // 더티 체킹, 변경 내역 감지가 일어나면서 변경된 내역을들 다 변경하여 update 쿼리가 날라간다.
+    }
+
+    /*
+    * 검색
+    * */
+    public List<Order> findOrders(OrderSearch orderSearch) {
+        return orderRepository.findAllByString(orderSearch);
+    }
+}
+```
+
+Order에 Delivery와 OrderItem에 casecade가 걸려있으므로 Order가 persist() 될 때 같이 persist() 된다!
+
+<br/>
+
+> 컨트롤러와 웹 계층 개발 부분은 생략하겠습니다.
+
+---
+
+## 변경 감지와 병합
+
+```java
+@PostMapping("/items/{itemId}/edit")
+public String updateItem(@ModelAttribute("form") BookForm form, @PathVariable Long itemId) {
+
+    // 트랜잭션이 있다고 쳐도 해당 객체는 준영속 엔티티이기 때문에 영속성 컨텍스트가 관리하지 않아
+    // 더티 채킹이 일어나지 않음 (이미 식별자를 가지고 있음. 디비에 한번 넣었다 빠진 엔티티)
+    // 준영속 엔티티를 수정하는 방법 / 변경감지 사용, 머지 사용
+    // 1. 영속 상태의 엔티티를 디비에서 조회 후 더티 채팅의 대상이 되게 한다.
+    // 2. merge, 는 준영속 상태의 엔티티를 영속 상태로 변경해준다.
+    // merge 쓰면 모든 데이터를 다 밀어넣어줘서 가급적 쓰지말자
+    // 결론 -> 엔티티를 변경할 때는 항상 변경 감지를 사용하자
+    Book book = new Book();
+    book.setId(form.getId());
+    book.setName(form.getName());
+    book.setPrice(form.getPrice());
+    book.setStockQuantity(form.getStockQuantity());
+    book.setAuthor(form.getAuthor());
+    book.setIsbn(form.getIsbn());
+    iTemService.saveItem(book);
+
+    return "redirect:/items";
+}
+```
+
+### 준속성 엔티티
+
+- 영속성 컨텍스트가 더 이상 관리하지 않는 엔티티이다.
+- 위의 Book 객체는 한번 디비에 저장되어서 식별자가 존재한다. 이렇게 임의로 만든 엔티티로 기존 식별자를 가지고 있으면 준영속 엔티티이다.
+
+준영속 엔티티는 영속성 컨텍스트가 관리하지 않기 때문에 변경이 일어나도 더티 채킹의 대상이 되지 않기 때문에 수정이 일어날 수 없다.
+
+### 준영속 엔티티 수정 방법
+
+- 변경 감지 기능(더티 채킹) 사용
+- merge
+
+### 변경 감지 기능 사용
+
+```java
+@Transactional
+public void update(Long itemId) {
+    Item findItem = em.find(Item.class, itemId);
+    findItem.setName(...);
+    // 수정 작업 ...
+}
+```
+
+영속성 컨텍스트 안에서 해당 엔티티를 다시 조회한 후 데이터를 변경하는 방법이다.
+
+이렇게 하면 트랜잭션 커밋 시점에 더티 채킹이 일어나 update 쿼리를 날린다.
+
+### 병합(merge) 사용
+
+준영속 엔티티를 영속 엔티티로 변경할 때 사용하는 기능이다.
+
+### 병합 동작 방식
+
+1. em.merge(준영속엔티티);
+2. 파라미터로 넘어온 준영속 엔티티릐 식별자 값으로 1차 캐시에서 엔티티를 조회
+3. 없으면 데이터베이스에서 엔티티를 조회하고, 1차 캐시에 저장한다.
+4. **조회한 영속 엔티티에 파라미터로 들어온 준영속 엔티티의 값으로 모든 필드를 밀어넣는다!**
+5. 영속 상태인 엔티티를 반환한다.
+
+그렇게 때문에, **병합을 사용하면 모든 속성이 변경된다. 변경시 값이 없으면 null로 대치되는 위험이 있다.**
+
+### 해결책
+
+**엔티티를 변경시엔 항상 변경 감지를 사용하자**
+
+변경 감지 기능을 사용하여 엔티티를 영속성 컨텍스트 안에서 조회하여 영속 엔티티를 사용하면 원하는 속성만 선택하여 변경이 가능하고 트랜잭션 커밋 시점에 자동으로 변경 감지가 일어납니다.
