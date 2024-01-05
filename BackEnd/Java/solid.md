@@ -12,4 +12,4 @@
 
 > Single Responsibility Principle
 
-- 한 클래스는 하나의 책임만 가져야 한다.
+- 한 클래스는 하나의 책임만 가져야 한다
