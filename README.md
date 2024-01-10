@@ -47,8 +47,8 @@
 
 ### Spring
 
-- [Spring vs SpringBoot](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Spring/spring-springboot.md)
-- [Spring](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Spring/spring.md)
+- [스프링과 스프링부트](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Spring/spring-springboot.md)
+- [스프링](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Spring/spring.md)
 - [API](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Spring/API.md)
 - [DAO DTO VO](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Spring/dto-dao-vo.md)
 - [JPA, ORM](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Spring/jpa-orm.md)
