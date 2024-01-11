@@ -75,7 +75,8 @@
 
 **인터넷 네트워크**
 
-- [IP(인터넷 프로토콜)](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Kotlin/kotlin.md)
+- [IP(인터넷 프로토콜)](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/http/ip.md)
+- [TCP, UDP](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/http/tcp-udp.md)
 
 ---
 
