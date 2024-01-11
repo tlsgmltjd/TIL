@@ -71,6 +71,14 @@
 
 ---
 
+### HTTP
+
+**인터넷 네트워크**
+
+- [IP(인터넷 프로토콜)](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Kotlin/kotlin.md)
+
+---
+
 ### HTML
 
 - [DOM](https://github.com/tlsgmltjd/TIL/blob/main/HTML/DOM.md)
