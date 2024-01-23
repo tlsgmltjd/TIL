@@ -73,10 +73,15 @@
 
 ### HTTP
 
-**인터넷 네트워크**
+인터넷 네트워크
 
 - [IP(인터넷 프로토콜)](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/http/ip.md)
 - [TCP, UDP](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/http/tcp-udp.md)
+- [PORT, DNS](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/http/port-dns.md)
+
+URI와 웹 브라우저 요청 흐름
+
+- [URI](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/http/uri.md)
 
 ---
 
