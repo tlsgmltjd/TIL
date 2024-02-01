@@ -56,3 +56,10 @@ https://(userinfo@)www.google.com:433/search?q=hello&hl=ko
 
 - key=value 형태이다
 - ?로 시작하며 &로 추가할 수 있다.
+- query parameter, query string으로 불림
+
+### fragment
+
+- fragment
+- html 내부 북마크에 사용
+- 서버에 전송 안됨

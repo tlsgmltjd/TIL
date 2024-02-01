@@ -82,6 +82,7 @@
 URI와 웹 브라우저 요청 흐름
 
 - [URI](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/http/uri.md)
+- [웹 브라우저 요청 흐름](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/http/brower-request-cycle.md)
 
 ---
 
