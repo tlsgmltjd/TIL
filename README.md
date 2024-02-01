@@ -87,6 +87,7 @@ URI와 웹 브라우저 요청 흐름
 HTTP
 
 - [모든 것이 HTTP](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/http/http.md)
+- [클라이언트 서버 구조](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/http/client-server.md)
 
 ---
 
