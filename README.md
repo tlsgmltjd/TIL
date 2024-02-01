@@ -88,6 +88,9 @@ HTTP
 
 - [모든 것이 HTTP](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/http/http.md)
 - [클라이언트 서버 구조](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/http/client-server.md)
+- [Stateful, Stateless](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/http/stateful-stateless.md)
+- [Connectionless](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/http/connectionless.md)
+- [HTTP 메시지](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/http/http-message.md)
 
 ---
 
