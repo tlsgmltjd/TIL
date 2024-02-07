@@ -92,6 +92,10 @@ HTTP
 - [Connectionless](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/http/connectionless.md)
 - [HTTP 메시지](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/http/http-message.md)
 
+HTTP 메서드
+
+- [HTTP API 만들기](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/http/make-http-api.md)
+
 ---
 
 ### HTML
