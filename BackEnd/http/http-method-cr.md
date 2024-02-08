@@ -46,7 +46,8 @@ Content-Type: application/json
 Content-Length: 00
 {
     id: 1,
-    name: "오브젝트"
+    name: "오브젝트",
+    price: 20000
 }
 ```
 
@@ -65,7 +66,8 @@ POST /book HTTP/1.1
 Content-Type: application/json
 
 {
-    name: "오브젝트2"
+    name: "오브젝트2",
+    price: 20000
 }
 ```
 
@@ -82,7 +84,8 @@ Content-Length: 00
 Location: /book/2
 {
     id: 2,
-    name: "오브젝트2"
+    name: "오브젝트2",
+    price: 20000
 }
 ```
 
