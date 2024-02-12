@@ -97,7 +97,11 @@ HTTP 메서드
 - [HTTP API 만들기](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/http/make-http-api.md)
 - [HTTP 메서드 GET, POST](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/http/http-method-cr.md)
 - [HTTP 메서드 PUT, PATCH, DELETE](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/http/http-method-upd.md)
-- [HTTP 메서드 PUT, PATCH, DELETE](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/http/http-method-attribute.md)
+- [HTTP 메서드의 속성](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/http/http-method-attribute.md)
+
+HTTP 메서드 활용
+
+- [클라이언트에서 서버로 데이터 전송](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/http/http-server-client-data.md)
 
 ---
 
