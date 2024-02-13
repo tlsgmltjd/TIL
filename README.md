@@ -102,6 +102,7 @@ HTTP 메서드
 HTTP 메서드 활용
 
 - [클라이언트에서 서버로 데이터 전송](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/http/http-server-client-data.md)
+- [HTTP API 설계 예시](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/http/http-api-structure-example.md)
 
 ---
 
