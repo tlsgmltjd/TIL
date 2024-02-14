@@ -104,6 +104,10 @@ HTTP 메서드 활용
 - [클라이언트에서 서버로 데이터 전송](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/http/http-server-client-data.md)
 - [HTTP API 설계 예시](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/http/http-api-structure-example.md)
 
+HTTP 상태코드
+
+- [HTTP 상태코드](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/http/http-status-code.md)
+
 ---
 
 ### HTML
