@@ -109,6 +109,7 @@ HTTP 상태코드
 - [HTTP 상태코드](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/http/http-status-code.md)
 - [2xx - 성공](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/http/http-status-code-2xx.md)
 - [3xx - 리다이렉션](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/http/http-status-code-3xx.md)
+- [4xx - 클라이언트 오류, 5xx - 서버 오류](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/http/http-status-code-4xx-5xx.md)
 
 ---
 
