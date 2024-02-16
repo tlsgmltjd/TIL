@@ -111,6 +111,10 @@ HTTP 상태코드
 - [3xx - 리다이렉션](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/http/http-status-code-3xx.md)
 - [4xx - 클라이언트 오류, 5xx - 서버 오류](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/http/http-status-code-4xx-5xx.md)
 
+HTTP 헤더 (일반 헤더)
+
+- [HTTP 헤더 개요, 표현](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/http/http-header.md)
+
 ---
 
 ### HTML
