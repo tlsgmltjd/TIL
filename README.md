@@ -5,24 +5,6 @@
 
 ---
 
-### Git
-
-- [터미널 기본 명령어](https://github.com/tlsgmltjd/TIL/blob/main/Git/terminal-command.md)
-- [Git 명령어](https://github.com/tlsgmltjd/TIL/blob/main/Git/git.md)
-- [clone, commit, push](https://github.com/tlsgmltjd/TIL/blob/main/Git/github.md)
-- [branch, PR, merge](https://github.com/tlsgmltjd/TIL/blob/main/Git/branch.md)
-- [웹 개발](https://github.com/tlsgmltjd/TIL/blob/main/Git/web.md)
-
-### InterNet
-
-- [인터넷?](https://github.com/tlsgmltjd/TIL/blob/main/Internet/what-is-Internet.md)
-- [HTTP](https://github.com/tlsgmltjd/TIL/blob/main/Internet/HTTP.md)
-- [Browser](https://github.com/tlsgmltjd/TIL/blob/main/Internet/Browser.md)
-- [cookie session token](https://github.com/tlsgmltjd/TIL/blob/main/Internet/cookie-session-token.md)
-- [server](https://github.com/tlsgmltjd/TIL/blob/main/Internet/server.md)
-
----
-
 ### Java
 
 - [Java](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Java/java.md)
@@ -44,8 +26,8 @@
 
 ### Spring
 
-- [스프링과 스프링부트](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Spring/spring-springboot.md)
-- [스프링](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Spring/spring.md)
+- [spring, spring boot](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Spring/spring-springboot.md)
+- [spring](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Spring/spring.md)
 - [API](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Spring/API.md)
 - [DAO DTO VO](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Spring/dto-dao-vo.md)
 - [JPA, ORM](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Spring/jpa-orm.md)
