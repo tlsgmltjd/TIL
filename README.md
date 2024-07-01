@@ -55,7 +55,7 @@
 
 ### DevOps
 
-- [CI/CD](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/DevOps/CI/CD.md)
+- [CI/CD](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/DevOps/CICD.md)
 
 ---
 
