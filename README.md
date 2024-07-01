@@ -34,6 +34,7 @@
 - [JPA, ORM](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Spring/jpa-orm.md)
 - [build.gradle](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Spring/build.gradle.md)
 - [서블릿과 디스패처 서블릿 - Servlet, Dispatcher Servlet](https://tlsgmltjd.tistory.com/4)
+- [JDBC와 DataSource](https://tlsgmltjd.tistory.com/8)
 
 * [김영한 스프링 입문](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Spring/SpringRoadMap/스프링입문.md)
 * [김영한 스프링 JPA 활용 1](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Spring/SpringRoadMap/%EC%8A%A4%ED%94%84%EB%A7%81JPA%ED%99%9C%EC%9A%A91.md)
