@@ -23,6 +23,7 @@
   - [generic](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Java/java.util/generic.md)
 - [SOLID 원칙](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Java/solid.md)
 - [refelction](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Java/reflection.md)
+- [checked, unchecked exception](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Java/checked-unchecked-exception.md)
 - [JVM 구조](https://tlsgmltjd.tistory.com/5)
 
 ### Spring
