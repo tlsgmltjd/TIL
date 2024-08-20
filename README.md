@@ -25,6 +25,7 @@
 - [refelction](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Java/reflection.md)
 - [checked, unchecked exception](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Java/checked-unchecked-exception.md)
 - [JVM 구조](https://tlsgmltjd.tistory.com/5)
+- [GC 이해하기](https://tlsgmltjd.tistory.com/11)
 
 ### Spring
 
@@ -35,13 +36,24 @@
 - [JPA, ORM](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Spring/jpa-orm.md)
 - [build.gradle](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Spring/build.gradle.md)
 - [서블릿과 디스패처 서블릿 - Servlet, Dispatcher Servlet](https://tlsgmltjd.tistory.com/4)
+- [스프링을 사용하는 이유](https://tlsgmltjd.tistory.com/10)
 - [JDBC와 DataSource](https://tlsgmltjd.tistory.com/8)
+- [스프링 AOP](https://tlsgmltjd.tistory.com/13)
 
 * [김영한 스프링 입문](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Spring/SpringRoadMap/스프링입문.md)
 * [김영한 스프링 JPA 활용 1](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Spring/SpringRoadMap/%EC%8A%A4%ED%94%84%EB%A7%81JPA%ED%99%9C%EC%9A%A91.md)
 
 - [스프링부트 요청과 응답](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Spring/SpringBook/%EC%8A%A4%ED%94%84%EB%A7%81%EC%9A%94%EC%B2%AD%EA%B3%BC%EC%9D%91%EB%8B%B5.md)
 - [스프링부트 테스트코드](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Spring/SpringBook/%EC%8A%A4%ED%94%84%EB%A7%81%EB%B6%80%ED%8A%B8%ED%85%8C%EC%8A%A4%ED%8A%B8%EC%BD%94%EB%93%9C.md)
+
+### DB
+
+- [DB 인덱스 진짜 이해하기](https://tlsgmltjd.tistory.com/14)
+
+### OS
+
+- [동기화를 위한 뮤텍스와 세마포어](https://tlsgmltjd.tistory.com/9)
+- [프로세스와 스레드](https://tlsgmltjd.tistory.com/12)
 
 ### Node.js
 
