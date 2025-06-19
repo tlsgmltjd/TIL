@@ -26,6 +26,7 @@
 - [checked, unchecked exception](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Java/checked-unchecked-exception.md)
 - [JVM 구조](https://tlsgmltjd.tistory.com/5)
 - [GC 이해하기](https://tlsgmltjd.tistory.com/11)
+- [자바에서 동시성 문제 해결하기 (synchronized, volatile, atomic type)](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Java/java-solve-concurrency-issue.md)
 
 ### Spring
 
