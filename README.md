@@ -28,6 +28,7 @@
 - [GC 이해하기](https://tlsgmltjd.tistory.com/11)
 - [자바에서 동시성 문제 해결하기 (synchronized, volatile, atomic type)](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Java/java-solve-concurrency-issue.md)
 - [자바 동시성 프로그래밍](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Java/java-concurrent-programing.md)
+- [JVM Warm-up](https://github.com/tlsgmltjd/TIL/blob/main/BackEnd/Java/jvm-warm-up.md)
 
 ### Spring
 
